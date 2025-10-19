@@ -16,8 +16,8 @@ export default function LandingPage() {
                 <Vote className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="font-bold text-lg text-foreground">ITERA Election</h1>
-                <p className="text-sm text-muted-foreground">Pemilihan Presiden Mahasiswa</p>
+                <h1 className="font-bold text-lg text-foreground">HMTEKIA Election</h1>
+                <p className="text-sm text-muted-foreground">Pemilihan Kahim & Sekjen</p>
               </div>
             </div>
             <Link href="/login">
@@ -33,14 +33,14 @@ export default function LandingPage() {
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4">
-            Pemilihan Presiden Mahasiswa 2024
+            Pemilihan Kahim & Sekjen HMTEKIA 2024
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-balance mb-6 text-foreground">
-            Suaramu, <span className="text-primary">Masa Depan</span> ITERA
+            Suaramu, <span className="text-primary">Masa Depan</span> HMTEKIA
           </h1>
           <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto mb-8">
-            Berpartisipasilah dalam pemilihan presiden mahasiswa ITERA 2024. Pilih pemimpin yang akan membawa perubahan
-            positif untuk kampus kita.
+            Berpartisipasilah dalam pemilihan Ketua Himpunan dan Sekretaris Jenderal HMTEKIA 2024. 
+            Pilih pemimpin yang akan membawa perubahan positif untuk himpunan kita.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/login">
@@ -95,7 +95,7 @@ export default function LandingPage() {
                   1
                 </div>
                 <h3 className="font-semibold mb-2">Login</h3>
-                <p className="text-sm text-muted-foreground">Masuk dengan akun mahasiswa ITERA Anda</p>
+                <p className="text-sm text-muted-foreground">Masuk dengan akun mahasiswa Anda</p>
               </div>
               <div className="text-center">
                 <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 font-bold">
@@ -116,7 +116,7 @@ export default function LandingPage() {
                   4
                 </div>
                 <h3 className="font-semibold mb-2">Vote</h3>
-                <p className="text-sm text-muted-foreground">Pilih kandidat favorit Anda</p>
+                <p className="text-sm text-muted-foreground">Pilih kandidat Kahim & Sekjen favorit Anda</p>
               </div>
             </div>
           </CardContent>
@@ -128,7 +128,7 @@ export default function LandingPage() {
             <CardContent className="py-12">
               <h2 className="text-3xl font-bold mb-4">Siap Memberikan Suara?</h2>
               <p className="text-lg mb-6 opacity-90">
-                Bergabunglah dengan ribuan mahasiswa ITERA lainnya dalam menentukan masa depan kampus
+                Bergabunglah dengan mahasiswa Teknik Kimia lainnya dalam menentukan masa depan HMTEKIA
               </p>
               <Link href="/login">
                 <Button size="lg" variant="secondary">
@@ -145,8 +145,8 @@ export default function LandingPage() {
       <footer className="border-t bg-card/50 backdrop-blur-sm mt-12">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-muted-foreground">
-            <p>&copy; 2024 Institut Teknologi Sumatera. All rights reserved.</p>
-            <p className="text-sm mt-2">Sistem Pemilihan Presiden Mahasiswa ITERA</p>
+            <p>&copy; 2024 Himpunan Mahasiswa Teknik Kimia ITERA. All rights reserved.</p>
+            <p className="text-sm mt-2">Sistem Pemilihan Ketua Himpunan & Sekretaris Jenderal HMTEKIA</p>
           </div>
         </div>
       </footer>

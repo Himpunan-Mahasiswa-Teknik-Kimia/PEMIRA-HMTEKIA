@@ -12,9 +12,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Vote, User, CheckCircle, Loader2, AlertCircle, Eye } from "lucide-react"
+import { Vote, User, CheckCircle, Loader2, AlertCircle, Eye, ArrowRight } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import { Badge } from "@/components/ui/badge"
 
 interface Candidate {
   id: string
@@ -132,9 +133,17 @@ export default function VotePage() {
         const candidatesData = await candidatesResponse.json()
         console.log('Candidates data:', candidatesData)
 
-        setCandidates(candidatesData.candidates || [])
+        const allCandidates = candidatesData.candidates || []
+        setCandidates(allCandidates)
 
-        if (candidatesData.candidates?.length === 0) {
+        // Separate candidates by position
+        const ketuaCandidates = allCandidates.filter((c: Candidate) => c.position === 'KETUA_HIMPUNAN')
+        const sekjenCandidatesFiltered = allCandidates.filter((c: Candidate) => c.position === 'SEKJEN')
+        
+        setKetuaHimpunanCandidates(ketuaCandidates)
+        setSekjenCandidates(sekjenCandidatesFiltered)
+
+        if (allCandidates.length === 0) {
           setError('Tidak ada kandidat yang tersedia saat ini')
         }
 
@@ -149,15 +158,15 @@ export default function VotePage() {
     checkAuthAndLoadData()
   }, [router])
 
-  const handleVoteSubmit = async () => {
-    if (!selectedCandidate || !user) return
+  const handleVoteSubmit = async (position: 'KETUA_HIMPUNAN' | 'SEKJEN', candidateId: string) => {
+    if (!user) return
 
     setVoting(true)
     setError("")
     setSuccess("")
 
     try {
-      console.log('Submitting vote for candidate:', selectedCandidate)
+      console.log('Submitting vote for position:', position, 'candidate:', candidateId)
 
       const response = await fetch('/api/vote', {
         method: 'POST',
@@ -166,7 +175,8 @@ export default function VotePage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          candidateId: selectedCandidate
+          candidateId: candidateId,
+          position: position
         })
       })
 
@@ -177,15 +187,22 @@ export default function VotePage() {
         throw new Error(data.error || 'Failed to submit vote')
       }
 
-      setSuccess('Vote berhasil disimpan!')
-      
-      // Immediately set blocked conditions to prevent further interaction
-      setSessionUsed(true)
-      // mark local state as voted to prevent any further interactions until redirect happens
-      if (user) setUser({ user: { ...user.user, hasVoted: true } })
-      
-      // Redirect to success page immediately
-      router.push("/success")
+      if (position === 'KETUA_HIMPUNAN') {
+        setVotedForKetuaHimpunan(true)
+        setSuccess('Vote untuk Ketua Himpunan berhasil! Silakan pilih Sekjen.')
+        setCurrentStep('sekjen')
+        setShowConfirmDialog(false)
+      } else if (position === 'SEKJEN') {
+        setVotedForSekjen(true)
+        setSuccess('Vote untuk Sekjen berhasil! Terima kasih atas partisipasi Anda.')
+        setCurrentStep('complete')
+        setShowConfirmDialog(false)
+        
+        // Redirect to success page after both votes complete
+        setTimeout(() => {
+          router.push("/success")
+        }, 1500)
+      }
 
     } catch (err) {
       console.error('Vote error:', err)
@@ -196,62 +213,23 @@ export default function VotePage() {
     }
   }
 
-  const handleCandidateSelect = (candidateId: string) => {
-    setSelectedCandidate(candidateId)
-  }
-
   const handleShowDetail = (candidate: Candidate) => {
     setDetailCandidate(candidate)
     setShowDetailDialog(true)
   }
 
-  const handleConfirmVote = () => {
-    if (!selectedCandidate) return
+  const handleConfirmVote = (position: 'KETUA_HIMPUNAN' | 'SEKJEN') => {
+    const selectedId = position === 'KETUA_HIMPUNAN' ? selectedKetuaHimpunan : selectedSekjen
+    if (!selectedId) return
     setShowConfirmDialog(true)
   }
-
-  console.log("user: ", user)
 
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
+          <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4 text-primary" />
           <p>Memuat data kandidat...</p>
-        </div>
-      </div>
-    )
-  }
-
-  // Calculate blocked state consistently
-  const isBlocked = !!user && (user.user?.hasVoted || sessionUsed)
-
-  // Show blocked state if user has already voted or session is used
-  if (isBlocked) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center">
-        <div className="container mx-auto max-w-2xl px-4">
-          <Card className="text-center">
-            <CardContent className="py-12">
-              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-6" />
-              <h1 className="text-2xl font-bold mb-4">Vote Sudah Tercatat</h1>
-              <p className="text-lg text-muted-foreground mb-6">
-                Anda sudah melakukan vote. Terima kasih atas partisipasi Anda!
-              </p>
-              <Alert className="mb-6">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>
-                  Setiap mahasiswa hanya dapat memberikan satu suara dalam pemilihan ini.
-                </AlertDescription>
-              </Alert>
-              <Button 
-                onClick={() => router.push("/")} 
-                className="w-full sm:w-auto"
-              >
-                Kembali ke Beranda
-              </Button>
-            </CardContent>
-          </Card>
         </div>
       </div>
     )
@@ -267,8 +245,31 @@ export default function VotePage() {
               <Vote className="h-7 w-7 text-primary-foreground" />
             </div>
             <div className="text-left">
-              <h1 className="font-bold text-xl text-foreground">ITERA Election</h1>
-              <p className="text-sm text-muted-foreground">Pilih Kandidat</p>
+              <h1 className="font-bold text-xl text-foreground">HMTEKIA Election</h1>
+              <p className="text-sm text-muted-foreground">Pemilihan Kahim & Sekjen</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Progress Indicator */}
+        <div className="mb-8">
+          <div className="flex items-center justify-center gap-4">
+            <div className={`flex items-center gap-2 ${currentStep === 'ketua' ? 'text-primary' : votedForKetuaHimpunan ? 'text-green-600' : 'text-muted-foreground'}`}>
+              {votedForKetuaHimpunan ? (
+                <CheckCircle className="h-6 w-6" />
+              ) : (
+                <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center">1</div>
+              )}
+              <span className="font-semibold">Ketua Himpunan</span>
+            </div>
+            <ArrowRight className="h-5 w-5 text-muted-foreground" />
+            <div className={`flex items-center gap-2 ${currentStep === 'sekjen' ? 'text-primary' : votedForSekjen ? 'text-green-600' : 'text-muted-foreground'}`}>
+              {votedForSekjen ? (
+                <CheckCircle className="h-6 w-6" />
+              ) : (
+                <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center">2</div>
+              )}
+              <span className="font-semibold">Sekretaris Jenderal</span>
             </div>
           </div>
         </div>
@@ -322,99 +323,237 @@ export default function VotePage() {
         <Alert className="mb-8">
           <CheckCircle className="h-4 w-4" />
           <AlertDescription>
-            <strong>Petunjuk Voting:</strong> Pilih salah satu kandidat di bawah ini dengan mengklik kartu kandidat.
-            Setelah memilih, klik tombol "Vote" untuk mengonfirmasi pilihan Anda. Pilihan tidak dapat diubah setelah
-            dikonfirmasi.
+            <strong>Petunjuk Voting:</strong> Anda akan melakukan 2 kali voting - pertama untuk Ketua Himpunan, kemudian untuk Sekretaris Jenderal.
+            Pilih kandidat dengan mengklik kartu, lalu klik tombol "Vote" untuk mengonfirmasi.
           </AlertDescription>
         </Alert>
 
-        {/* Candidates Grid */}
-        {candidates.length > 0 ? (
+        {/* Voting Section - Ketua Himpunan */}
+        {currentStep === 'ketua' && (
           <>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {candidates.map((candidate) => (
-                <Card
-                  key={candidate.id}
-                  className={`cursor-pointer transition-all duration-200 hover:shadow-lg ${
-                    selectedCandidate === candidate.id ? "ring-2 ring-primary bg-primary/5" : "hover:shadow-md"
-                  }`}
-                  onClick={() => handleCandidateSelect(candidate.id)}
-                >
-                  <CardHeader className="text-center">
-                    <div className="relative w-32 h-32 mx-auto mb-4">
-                      <Image
-                        src={candidate.photo || "/placeholder.svg?height=128&width=128"}
-                        alt={candidate.name}
-                        fill
-                        className="rounded-full object-cover"
-                      />
-                      {selectedCandidate === candidate.id && (
-                        <div className="absolute -top-2 -right-2">
-                          <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
-                            <CheckCircle className="h-5 w-5 text-primary-foreground" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <CardTitle className="text-lg">{candidate.name}</CardTitle>
-                    <CardDescription>
-                      <div className="space-y-1">
-                        <p>NIM: {candidate.nim}</p>
-                        <p>{candidate.prodi}</p>
-                      </div>
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div>
-                        <p className="text-sm font-semibold text-muted-foreground mb-1">Visi:</p>
-                        <p className="text-sm line-clamp-3">{candidate.visi}</p>
-                      </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full bg-transparent"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleShowDetail(candidate)
-                        }}
-                      >
-                        <Eye className="mr-2 h-4 w-4" />
-                        Lihat Detail
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Badge variant="default" className="text-base px-4 py-2">
+                  Langkah 1: Pilih Ketua Himpunan
+                </Badge>
+              </div>
             </div>
 
-            {/* Vote Button */}
-            <div className="text-center">
-              <Button size="lg" onClick={handleConfirmVote} disabled={!selectedCandidate || voting} className="min-w-48">
-                {voting ? (
-                  <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Menyimpan Vote...
-                  </>
-                ) : (
-                  <>
-                    <Vote className="mr-2 h-5 w-5" />
-                    Vote Sekarang
-                  </>
-                )}
-              </Button>
-              {selectedCandidate && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  Anda akan memilih: <strong>{candidates.find((c) => c.id === selectedCandidate)?.name}</strong>
-                </p>
-              )}
-            </div>
+            {ketuaHimpunanCandidates.length > 0 ? (
+              <>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                  {ketuaHimpunanCandidates.map((candidate) => (
+                    <Card
+                      key={candidate.id}
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg ${
+                        selectedKetuaHimpunan === candidate.id ? "ring-2 ring-primary bg-primary/5" : "hover:shadow-md"
+                      }`}
+                      onClick={() => setSelectedKetuaHimpunan(candidate.id)}
+                    >
+                      <CardHeader className="text-center">
+                        <div className="relative w-32 h-32 mx-auto mb-4">
+                          <Image
+                            src={candidate.photo || "/placeholder.svg?height=128&width=128"}
+                            alt={candidate.name}
+                            fill
+                            className="rounded-full object-cover"
+                          />
+                          {selectedKetuaHimpunan === candidate.id && (
+                            <div className="absolute -top-2 -right-2">
+                              <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
+                                <CheckCircle className="h-5 w-5 text-primary-foreground" />
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <CardTitle className="text-lg">{candidate.name}</CardTitle>
+                        <CardDescription>
+                          <div className="space-y-1">
+                            <p>NIM: {candidate.nim}</p>
+                            <p>{candidate.prodi}</p>
+                          </div>
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-sm font-semibold text-muted-foreground mb-1">Visi:</p>
+                            <p className="text-sm line-clamp-3">{candidate.visi}</p>
+                          </div>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleShowDetail(candidate)
+                            }}
+                          >
+                            <Eye className="mr-2 h-4 w-4" />
+                            Lihat Detail
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                <div className="text-center">
+                  <Button 
+                    size="lg" 
+                    onClick={() => handleConfirmVote('KETUA_HIMPUNAN')} 
+                    disabled={!selectedKetuaHimpunan || voting} 
+                    className="min-w-48"
+                  >
+                    {voting ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Menyimpan Vote...
+                      </>
+                    ) : (
+                      <>
+                        <Vote className="mr-2 h-5 w-5" />
+                        Vote Ketua Himpunan
+                      </>
+                    )}
+                  </Button>
+                  {selectedKetuaHimpunan && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Anda akan memilih: <strong>{ketuaHimpunanCandidates.find((c) => c.id === selectedKetuaHimpunan)?.name}</strong>
+                    </p>
+                  )}
+                </div>
+              </>
+            ) : (
+              <Card>
+                <CardContent className="pt-6 text-center">
+                  <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground">Tidak ada kandidat Ketua Himpunan yang tersedia.</p>
+                </CardContent>
+              </Card>
+            )}
           </>
-        ) : (
-          <Card>
-            <CardContent className="pt-6 text-center">
-              <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">Tidak ada kandidat yang tersedia saat ini.</p>
+        )}
+
+        {/* Voting Section - Sekjen */}
+        {currentStep === 'sekjen' && (
+          <>
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Badge variant="default" className="text-base px-4 py-2">
+                  Langkah 2: Pilih Sekretaris Jenderal
+                </Badge>
+              </div>
+            </div>
+
+            {sekjenCandidates.length > 0 ? (
+              <>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                  {sekjenCandidates.map((candidate) => (
+                    <Card
+                      key={candidate.id}
+                      className={`cursor-pointer transition-all duration-200 hover:shadow-lg ${
+                        selectedSekjen === candidate.id ? "ring-2 ring-primary bg-primary/5" : "hover:shadow-md"
+                      }`}
+                      onClick={() => setSelectedSekjen(candidate.id)}
+                    >
+                      <CardHeader className="text-center">
+                        <div className="relative w-32 h-32 mx-auto mb-4">
+                          <Image
+                            src={candidate.photo || "/placeholder.svg?height=128&width=128"}
+                            alt={candidate.name}
+                            fill
+                            className="rounded-full object-cover"
+                          />
+                          {selectedSekjen === candidate.id && (
+                            <div className="absolute -top-2 -right-2">
+                              <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
+                                <CheckCircle className="h-5 w-5 text-primary-foreground" />
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <CardTitle className="text-lg">{candidate.name}</CardTitle>
+                        <CardDescription>
+                          <div className="space-y-1">
+                            <p>NIM: {candidate.nim}</p>
+                            <p>{candidate.prodi}</p>
+                          </div>
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-sm font-semibold text-muted-foreground mb-1">Visi:</p>
+                            <p className="text-sm line-clamp-3">{candidate.visi}</p>
+                          </div>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleShowDetail(candidate)
+                            }}
+                          >
+                            <Eye className="mr-2 h-4 w-4" />
+                            Lihat Detail
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                <div className="text-center">
+                  <Button 
+                    size="lg" 
+                    onClick={() => handleConfirmVote('SEKJEN')} 
+                    disabled={!selectedSekjen || voting} 
+                    className="min-w-48"
+                  >
+                    {voting ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Menyimpan Vote...
+                      </>
+                    ) : (
+                      <>
+                        <Vote className="mr-2 h-5 w-5" />
+                        Vote Sekjen
+                      </>
+                    )}
+                  </Button>
+                  {selectedSekjen && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Anda akan memilih: <strong>{sekjenCandidates.find((c) => c.id === selectedSekjen)?.name}</strong>
+                    </p>
+                  )}
+                </div>
+              </>
+            ) : (
+              <Card>
+                <CardContent className="pt-6 text-center">
+                  <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <p className="text-muted-foreground">Tidak ada kandidat Sekjen yang tersedia.</p>
+                </CardContent>
+              </Card>
+            )}
+          </>
+        )}
+
+        {/* Completion Message */}
+        {currentStep === 'complete' && (
+          <Card className="text-center">
+            <CardContent className="py-12">
+              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-6" />
+              <h2 className="text-2xl font-bold mb-4">Vote Berhasil Tersimpan!</h2>
+              <p className="text-muted-foreground mb-4">
+                Terima kasih telah berpartisipasi dalam pemilihan HMTEKIA 2024.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Anda akan dialihkan ke halaman sukses...
+              </p>
             </CardContent>
           </Card>
         )}
@@ -429,28 +568,58 @@ export default function VotePage() {
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
-              {selectedCandidate && (
+              {currentStep === 'ketua' && selectedKetuaHimpunan && (
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-center gap-4">
                       <div className="relative w-16 h-16">
                         <Image
                           src={
-                            candidates.find((c) => c.id === selectedCandidate)?.photo ||
+                            ketuaHimpunanCandidates.find((c) => c.id === selectedKetuaHimpunan)?.photo ||
                             "/placeholder.svg?height=64&width=64"
                           }
-                          alt={candidates.find((c) => c.id === selectedCandidate)?.name || ""}
+                          alt={ketuaHimpunanCandidates.find((c) => c.id === selectedKetuaHimpunan)?.name || ""}
                           fill
                           className="rounded-full object-cover"
                         />
                       </div>
                       <div>
+                        <p className="text-xs text-muted-foreground mb-1">Ketua Himpunan</p>
                         <h3 className="font-semibold text-lg">
-                          {candidates.find((c) => c.id === selectedCandidate)?.name}
+                          {ketuaHimpunanCandidates.find((c) => c.id === selectedKetuaHimpunan)?.name}
                         </h3>
                         <p className="text-sm text-muted-foreground">
-                          {candidates.find((c) => c.id === selectedCandidate)?.nim} •{" "}
-                          {candidates.find((c) => c.id === selectedCandidate)?.prodi}
+                          {ketuaHimpunanCandidates.find((c) => c.id === selectedKetuaHimpunan)?.nim} •{" "}
+                          {ketuaHimpunanCandidates.find((c) => c.id === selectedKetuaHimpunan)?.prodi}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+              {currentStep === 'sekjen' && selectedSekjen && (
+                <Card>
+                  <CardContent className="pt-6">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-16 h-16">
+                        <Image
+                          src={
+                            sekjenCandidates.find((c) => c.id === selectedSekjen)?.photo ||
+                            "/placeholder.svg?height=64&width=64"
+                          }
+                          alt={sekjenCandidates.find((c) => c.id === selectedSekjen)?.name || ""}
+                          fill
+                          className="rounded-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-xs text-muted-foreground mb-1">Sekretaris Jenderal</p>
+                        <h3 className="font-semibold text-lg">
+                          {sekjenCandidates.find((c) => c.id === selectedSekjen)?.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {sekjenCandidates.find((c) => c.id === selectedSekjen)?.nim} •{" "}
+                          {sekjenCandidates.find((c) => c.id === selectedSekjen)?.prodi}
                         </p>
                       </div>
                     </div>
@@ -462,7 +631,16 @@ export default function VotePage() {
               <Button variant="outline" onClick={() => setShowConfirmDialog(false)} disabled={voting}>
                 Batal
               </Button>
-              <Button onClick={handleVoteSubmit} disabled={voting}>
+              <Button 
+                onClick={() => {
+                  if (currentStep === 'ketua') {
+                    handleVoteSubmit('KETUA_HIMPUNAN', selectedKetuaHimpunan)
+                  } else if (currentStep === 'sekjen') {
+                    handleVoteSubmit('SEKJEN', selectedSekjen)
+                  }
+                }} 
+                disabled={voting}
+              >
                 {voting ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -494,6 +672,9 @@ export default function VotePage() {
                     />
                   </div>
                   <div>
+                    <Badge className="mb-2">
+                      {detailCandidate.position === 'KETUA_HIMPUNAN' ? 'Ketua Himpunan' : 'Sekretaris Jenderal'}
+                    </Badge>
                     <h3 className="text-2xl font-bold">{detailCandidate.name}</h3>
                     <p className="text-muted-foreground">
                       NIM: {detailCandidate.nim} • {detailCandidate.prodi}
@@ -521,10 +702,17 @@ export default function VotePage() {
               {detailCandidate && (
                 <Button
                   onClick={() => {
-                    handleCandidateSelect(detailCandidate.id)
+                    if (detailCandidate.position === 'KETUA_HIMPUNAN' && currentStep === 'ketua') {
+                      setSelectedKetuaHimpunan(detailCandidate.id)
+                    } else if (detailCandidate.position === 'SEKJEN' && currentStep === 'sekjen') {
+                      setSelectedSekjen(detailCandidate.id)
+                    }
                     setShowDetailDialog(false)
                   }}
-                  disabled={voting}
+                  disabled={voting || 
+                    (detailCandidate.position === 'KETUA_HIMPUNAN' && currentStep !== 'ketua') ||
+                    (detailCandidate.position === 'SEKJEN' && currentStep !== 'sekjen')
+                  }
                 >
                   Pilih Kandidat Ini
                 </Button>

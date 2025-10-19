@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match ITERA election design brief */
+  /* HMTEKIA color scheme - Purple (#4d1793), Black (#070904), White */
   --background: #ffffff;
-  --foreground: #1f2937;
+  --foreground: #070904;
   --card: #f8fafc;
-  --card-foreground: #1f2937;
+  --card-foreground: #070904;
   --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  --primary: #374151;
+  --popover-foreground: #070904;
+  --primary: #4d1793;
   --primary-foreground: #ffffff;
-  --secondary: #6366f1;
+  --secondary: #4d1793;
   --secondary-foreground: #ffffff;
   --muted: #f9fafb;
-  --muted-foreground: #4b5563;
-  --accent: #6366f1;
+  --muted-foreground: #070904;
+  --accent: #4d1793;
   --accent-foreground: #ffffff;
   --destructive: #ea580c;
   --destructive-foreground: #ffffff;
-  --border: #d1d5db;
+  --border: #e5e7eb;
   --input: #ffffff;
-  --ring: rgba(99, 102, 241, 0.5);
-  --chart-1: #6366f1;
-  --chart-2: #4b5563;
+  --ring: rgba(77, 23, 147, 0.5);
+  --chart-1: #4d1793;
+  --chart-2: #070904;
   --chart-3: #ea580c;
   --chart-4: #0891b2;
-  --chart-5: #374151;
+  --chart-5: #6b21a8;
   --radius: 0.5rem;
   --sidebar: #f8fafc;
-  --sidebar-foreground: #1f2937;
-  --sidebar-primary: #374151;
+  --sidebar-foreground: #070904;
+  --sidebar-primary: #4d1793;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #6366f1;
+  --sidebar-accent: #4d1793;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #d1d5db;
-  --sidebar-ring: rgba(99, 102, 241, 0.5);
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: rgba(77, 23, 147, 0.5);
 }
 
 .dark {
-  --background: #0f172a;
+  --background: #070904;
   --foreground: #f1f5f9;
-  --card: #1e293b;
+  --card: #1a1a1a;
   --card-foreground: #f1f5f9;
-  --popover: #1e293b;
+  --popover: #1a1a1a;
   --popover-foreground: #f1f5f9;
-  --primary: #f1f5f9;
-  --primary-foreground: #0f172a;
-  --secondary: #4338ca;
+  --primary: #4d1793;
+  --primary-foreground: #ffffff;
+  --secondary: #6b21a8;
   --secondary-foreground: #f1f5f9;
-  --muted: #334155;
+  --muted: #1a1a1a;
   --muted-foreground: #94a3b8;
-  --accent: #4338ca;
+  --accent: #4d1793;
   --accent-foreground: #f1f5f9;
   --destructive: #dc2626;
   --destructive-foreground: #f1f5f9;
-  --border: #334155;
-  --input: #1e293b;
-  --ring: rgba(67, 56, 202, 0.5);
-  --chart-1: #4338ca;
+  --border: #2a2a2a;
+  --input: #1a1a1a;
+  --ring: rgba(77, 23, 147, 0.5);
+  --chart-1: #4d1793;
   --chart-2: #94a3b8;
   --chart-3: #dc2626;
   --chart-4: #0891b2;
-  --chart-5: #374151;
-  --sidebar: #1e293b;
+  --chart-5: #6b21a8;
+  --sidebar: #1a1a1a;
   --sidebar-foreground: #f1f5f9;
-  --sidebar-primary: #4338ca;
+  --sidebar-primary: #4d1793;
   --sidebar-primary-foreground: #f1f5f9;
-  --sidebar-accent: #4338ca;
+  --sidebar-accent: #4d1793;
   --sidebar-accent-foreground: #f1f5f9;
-  --sidebar-border: #334155;
-  --sidebar-ring: rgba(67, 56, 202, 0.5);
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: rgba(77, 23, 147, 0.5);
 }
 
 @theme inline {
