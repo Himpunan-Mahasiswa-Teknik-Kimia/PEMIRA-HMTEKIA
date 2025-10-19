@@ -37,11 +37,17 @@ enum Role {
   MONITORING
 }
 
+enum Position {
+  KETUA_HIMPUNAN
+  SEKJEN
+}
+
 model Candidate {
   id          String @id @default(cuid())
   name        String
   nim         String @unique
   prodi       String
+  position    Position
   visi        String @db.Text
   misi        String @db.Text
   photo       String?
@@ -70,12 +76,15 @@ model VotingSession {
 
 model Vote {
   id          String   @id @default(cuid())
-  userId      String   @unique
+  userId      String
   candidateId String
+  position    Position
   createdAt   DateTime @default(now())
   
   user        User      @relation(fields: [userId], references: [id])
   candidate   Candidate @relation(fields: [candidateId], references: [id])
+  
+  @@unique([userId, position])
 }
 
 model AdminLog {

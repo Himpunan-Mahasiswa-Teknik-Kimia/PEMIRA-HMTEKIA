@@ -17,6 +17,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Plus, Edit, Trash2, Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ApiClient } from "@/lib/api-client"
 
 interface Candidate {
@@ -24,6 +25,7 @@ interface Candidate {
   name: string
   nim: string
   prodi: string
+  position: string
   visi: string
   misi: string
   photo?: string
@@ -45,6 +47,7 @@ export default function CandidateManagement() {
     name: "",
     nim: "",
     prodi: "",
+    position: "KETUA_HIMPUNAN",
     visi: "",
     misi: "",
     photo: "",
@@ -87,6 +90,7 @@ export default function CandidateManagement() {
     if (!formData.name.trim()) errors.name = 'Nama wajib diisi'
     if (!formData.nim.trim()) errors.nim = 'NIM wajib diisi'
     if (!formData.prodi.trim()) errors.prodi = 'Program Studi wajib diisi'
+    if (!formData.position) errors.position = 'Posisi wajib dipilih'
     if (!formData.visi.trim()) errors.visi = 'Visi wajib diisi'
     if (!formData.misi.trim()) errors.misi = 'Misi wajib diisi'
 
@@ -151,6 +155,7 @@ export default function CandidateManagement() {
       name: candidate.name,
       nim: candidate.nim,
       prodi: candidate.prodi,
+      position: candidate.position,
       visi: candidate.visi,
       misi: candidate.misi,
       photo: candidate.photo || "",
@@ -185,7 +190,7 @@ export default function CandidateManagement() {
   }
 
   const resetForm = () => {
-    setFormData({ name: "", nim: "", prodi: "", visi: "", misi: "", photo: "" })
+    setFormData({ name: "", nim: "", prodi: "", position: "KETUA_HIMPUNAN", visi: "", misi: "", photo: "" })
     setFormErrors({})
     setEditingCandidate(null)
     setShowDialog(false)
@@ -230,7 +235,7 @@ export default function CandidateManagement() {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>Manajemen Kandidat ({candidates.length})</CardTitle>
-              <CardDescription>Kelola data kandidat presiden mahasiswa</CardDescription>
+              <CardDescription>Kelola data kandidat Ketua Himpunan dan Sekjen</CardDescription>
             </div>
             <Dialog open={showDialog} onOpenChange={setShowDialog}>
               <DialogTrigger asChild>
@@ -273,16 +278,34 @@ export default function CandidateManagement() {
                     </div>
                   </div>
                   
-                  <div className="space-y-2">
-                    <Label htmlFor="prodi">Program Studi *</Label>
-                    <Input
-                      id="prodi"
-                      value={formData.prodi}
-                      onChange={(e) => handleInputChange('prodi', e.target.value)}
-                      placeholder="Masukkan program studi"
-                      className={formErrors.prodi ? 'border-red-500' : ''}
-                    />
-                    {formErrors.prodi && <p className="text-sm text-red-500">{formErrors.prodi}</p>}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="prodi">Program Studi *</Label>
+                      <Input
+                        id="prodi"
+                        value={formData.prodi}
+                        onChange={(e) => handleInputChange('prodi', e.target.value)}
+                        placeholder="Masukkan program studi"
+                        className={formErrors.prodi ? 'border-red-500' : ''}
+                      />
+                      {formErrors.prodi && <p className="text-sm text-red-500">{formErrors.prodi}</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="position">Posisi *</Label>
+                      <Select
+                        value={formData.position}
+                        onValueChange={(value) => handleInputChange('position', value)}
+                      >
+                        <SelectTrigger className={formErrors.position ? 'border-red-500' : ''}>
+                          <SelectValue placeholder="Pilih posisi" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="KETUA_HIMPUNAN">Ketua Himpunan</SelectItem>
+                          <SelectItem value="SEKJEN">Sekretaris Jenderal (Sekjen)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {formErrors.position && <p className="text-sm text-red-500">{formErrors.position}</p>}
+                    </div>
                   </div>
                   
                   <div className="space-y-2">
@@ -352,6 +375,7 @@ export default function CandidateManagement() {
                   <TableHead>Kandidat</TableHead>
                   <TableHead>NIM</TableHead>
                   <TableHead>Program Studi</TableHead>
+                  <TableHead>Posisi</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead className="text-center">Aksi</TableHead>
                 </TableRow>
@@ -359,7 +383,7 @@ export default function CandidateManagement() {
               <TableBody>
                 {candidates.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                    <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
                       Belum ada kandidat yang terdaftar
                     </TableCell>
                   </TableRow>
@@ -396,6 +420,11 @@ export default function CandidateManagement() {
                       </TableCell>
                       <TableCell>{candidate.nim}</TableCell>
                       <TableCell>{candidate.prodi}</TableCell>
+                      <TableCell>
+                        <Badge variant="outline">
+                          {candidate.position === 'KETUA_HIMPUNAN' ? 'Ketua Himpunan' : 'Sekjen'}
+                        </Badge>
+                      </TableCell>
                       <TableCell>
                         <Badge variant={candidate.isActive ? "default" : "secondary"}>
                           {candidate.isActive ? "Aktif" : "Nonaktif"}

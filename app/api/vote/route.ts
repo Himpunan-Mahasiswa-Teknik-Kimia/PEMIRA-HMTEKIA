@@ -16,25 +16,26 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (user.hasVoted) {
+    const { candidateId, position } = await request.json()
+
+    if (!candidateId || !position) {
       return NextResponse.json(
-        { error: 'You have already voted' },
+        { error: 'Candidate ID and position are required' },
         { status: 400 }
       )
     }
 
-    const { candidateId } = await request.json()
-
-    if (!candidateId) {
+    // Validate position
+    if (!['KETUA_HIMPUNAN', 'SEKJEN'].includes(position)) {
       return NextResponse.json(
-        { error: 'Candidate ID is required' },
+        { error: 'Invalid position' },
         { status: 400 }
       )
     }
 
-    console.log('Voting for candidate:', candidateId)
+    console.log('Voting for candidate:', candidateId, 'position:', position)
 
-    // Verify candidate exists and is active
+    // Verify candidate exists, is active, and matches the position
     const candidate = await prisma.candidate.findUnique({
       where: { id: candidateId }
     })
@@ -43,6 +44,30 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Candidate not found or not active' },
         { status: 404 }
+      )
+    }
+
+    if (candidate.position !== position) {
+      return NextResponse.json(
+        { error: 'Candidate position mismatch' },
+        { status: 400 }
+      )
+    }
+
+    // Check if user already voted for this position
+    const existingVote = await prisma.vote.findUnique({
+      where: {
+        userId_position: {
+          userId: user.id,
+          position: position
+        }
+      }
+    })
+
+    if (existingVote) {
+      return NextResponse.json(
+        { error: `Anda sudah voting untuk posisi ${position === 'KETUA_HIMPUNAN' ? 'Ketua Himpunan' : 'Sekjen'}` },
+        { status: 400 }
       )
     }
 
@@ -67,38 +92,52 @@ export async function POST(request: NextRequest) {
 
     // Create vote in a transaction
     const result = await prisma.$transaction(async (tx) => {
-      // Create the vote (unique constraint prevents double voting)
+      // Create the vote
       const vote = await tx.vote.create({
         data: {
           userId: user.id,
-          candidateId: candidateId
+          candidateId: candidateId,
+          position: position
         }
       })
 
-      // Update user hasVoted status
-      await tx.user.update({
-        where: { id: user.id },
-        data: { hasVoted: true }
+      // Check if user has voted for both positions
+      const userVotes = await tx.vote.findMany({
+        where: { userId: user.id }
       })
 
-      // Mark voting session as used
-      await tx.votingSession.update({
-        where: { id: votingSession.id },
-        data: { isUsed: true }
-      })
+      // If user has voted for both positions, mark session as used and user as hasVoted
+      if (userVotes.length >= 2) {
+        await tx.user.update({
+          where: { id: user.id },
+          data: { hasVoted: true }
+        })
+
+        await tx.votingSession.update({
+          where: { id: votingSession.id },
+          data: { isUsed: true }
+        })
+      }
 
       return vote
     })
 
     console.log('Vote recorded successfully:', result.id)
 
+    // Check if user has completed both votes
+    const totalVotes = await prisma.vote.count({
+      where: { userId: user.id }
+    })
+
     return NextResponse.json({ 
       success: true,
       message: 'Vote recorded successfully',
       vote: {
         id: result.id,
-        candidateId: result.candidateId
-      }
+        candidateId: result.candidateId,
+        position: result.position
+      },
+      completedVoting: totalVotes >= 2
     })
   } catch (error) {
     console.error('Vote error:', error)
@@ -106,7 +145,7 @@ export async function POST(request: NextRequest) {
     // Handle Prisma unique constraint violation (double voting attempt)
     if (error && typeof error === 'object' && 'code' in error && error.code === 'P2002') {
       return NextResponse.json(
-        { error: 'You have already voted' },
+        { error: 'You have already voted for this position' },
         { status: 400 }
       )
     }

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const { PrismaClient, Role } = require('@prisma/client')
+const { PrismaClient, Role, Position } = require('@prisma/client')
 const bcrypt = require('bcryptjs')
 
 const prisma = new PrismaClient()
@@ -29,11 +29,11 @@ async function upsertUser({ email, nim, name, prodi, gender, phone, role, passwo
   })
 }
 
-async function upsertCandidate({ nim, name, prodi, visi, misi, photo }) {
+async function upsertCandidate({ nim, name, prodi, position, visi, misi, photo }) {
   return prisma.candidate.upsert({
     where: { nim },
-    update: { name, prodi, visi, misi, photo, isActive: true },
-    create: { nim, name, prodi, visi, misi, photo },
+    update: { name, prodi, position, visi, misi, photo, isActive: true },
+    create: { nim, name, prodi, position, visi, misi, photo },
   })
 }
 
@@ -112,22 +112,44 @@ async function main() {
     )
   )
 
-  // Seed Candidates
+  // Seed Candidates - Ketua Himpunan and Sekjen
   const candidates = [
+    // Kandidat Ketua Himpunan
     {
       nim: '2400000001',
-      name: 'Calon Ketua 1',
-      prodi: 'Teknik Informatika',
-      visi: 'Mewujudkan PEMIRA yang jujur, adil, dan transparan.',
-      misi: '- Digitalisasi proses pemilihan\n- Peningkatan partisipasi pemilih\n- Transparansi hasil secara real-time',
+      name: 'Calon Ketua Himpunan 1',
+      prodi: 'Teknik Kimia',
+      position: Position.KETUA_HIMPUNAN,
+      visi: 'Membangun Himpunan Mahasiswa Teknik Kimia yang solid, inovatif, dan berprestasi.',
+      misi: '- Meningkatkan solidaritas antar mahasiswa\n- Mengembangkan program kerja yang bermanfaat\n- Memfasilitasi pengembangan softskill dan hardskill',
       photo: null,
     },
     {
       nim: '2400000002',
-      name: 'Calon Ketua 2',
-      prodi: 'Teknik Mesin',
-      visi: 'PEMIRA partisipatif dengan akuntabilitas tinggi.',
-      misi: '- Edukasi pemilih\n- Integritas panitia\n- Pelaporan publik hasil akhir',
+      name: 'Calon Ketua Himpunan 2',
+      prodi: 'Teknik Kimia',
+      position: Position.KETUA_HIMPUNAN,
+      visi: 'Himpunan yang inklusif, kreatif, dan memberikan dampak positif bagi mahasiswa.',
+      misi: '- Membuka ruang aspirasi mahasiswa\n- Mengadakan kegiatan yang mendukung akademik\n- Membangun kerjasama dengan industri',
+      photo: null,
+    },
+    // Kandidat Sekretaris Jenderal (Sekjen)
+    {
+      nim: '2400000003',
+      name: 'Calon Sekjen 1',
+      prodi: 'Teknik Kimia',
+      position: Position.SEKJEN,
+      visi: 'Sekretariat yang terorganisir, efisien, dan transparan dalam menjalankan administrasi himpunan.',
+      misi: '- Meningkatkan sistem administrasi himpunan\n- Dokumentasi kegiatan yang terstruktur\n- Transparansi pengelolaan data organisasi',
+      photo: null,
+    },
+    {
+      nim: '2400000004',
+      name: 'Calon Sekjen 2',
+      prodi: 'Teknik Kimia',
+      position: Position.SEKJEN,
+      visi: 'Sekretariat yang responsif, akuntabel, dan mendukung kinerja kepengurusan himpunan.',
+      misi: '- Digitalisasi arsip dan dokumen himpunan\n- Koordinasi yang baik antar divisi\n- Laporan kegiatan yang tepat waktu',
       photo: null,
     },
   ]

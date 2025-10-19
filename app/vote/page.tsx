@@ -21,6 +21,7 @@ interface Candidate {
   name: string
   nim: string
   prodi: string
+  position: string
   visi: string
   misi: string
   photo?: string
@@ -43,15 +44,20 @@ interface MeResponse {
 export default function VotePage() {
   const [user, setUser] = useState<MeResponse | null>(null)
   const [candidates, setCandidates] = useState<Candidate[]>([])
-  const [selectedCandidate, setSelectedCandidate] = useState<string>("")
+  const [ketuaHimpunanCandidates, setKetuaHimpunanCandidates] = useState<Candidate[]>([])
+  const [sekjenCandidates, setSekjenCandidates] = useState<Candidate[]>([])
+  const [selectedKetuaHimpunan, setSelectedKetuaHimpunan] = useState<string>("")
+  const [selectedSekjen, setSelectedSekjen] = useState<string>("")
+  const [votedForKetuaHimpunan, setVotedForKetuaHimpunan] = useState(false)
+  const [votedForSekjen, setVotedForSekjen] = useState(false)
   const [loading, setLoading] = useState(true)
   const [voting, setVoting] = useState(false)
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
+  const [currentStep, setCurrentStep] = useState<'ketua' | 'sekjen' | 'complete'>('ketua')
   const [showConfirmDialog, setShowConfirmDialog] = useState(false)
   const [showDetailDialog, setShowDetailDialog] = useState(false)
   const [detailCandidate, setDetailCandidate] = useState<Candidate | null>(null)
-  const [sessionUsed, setSessionUsed] = useState(false)
   const router = useRouter()
 
   useEffect(() => {

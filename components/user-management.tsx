@@ -7,7 +7,9 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, RefreshCw, UserCheck, UserX } from "lucide-react"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+import { Search, RefreshCw, UserCheck, UserX, UserPlus } from "lucide-react"
 import { ApiClient } from "@/lib/api-client"
 import type { User } from "@/lib/types"
 
@@ -18,6 +20,19 @@ export default function UserManagement() {
   const [searchTerm, setSearchTerm] = useState("")
   const [roleFilter, setRoleFilter] = useState("all")
   const [statusFilter, setStatusFilter] = useState("all")
+  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
+  const [isCreating, setIsCreating] = useState(false)
+  const [createError, setCreateError] = useState("")
+  const [newUser, setNewUser] = useState({
+    email: "",
+    nim: "",
+    name: "",
+    prodi: "",
+    gender: "M",
+    phone: "",
+    role: "VOTER",
+    password: "",
+  })
 
   useEffect(() => {
     loadUsers()
@@ -92,6 +107,44 @@ export default function UserManagement() {
     }
   }
 
+  const handleCreateUser = async () => {
+    setCreateError("")
+    setIsCreating(true)
+
+    try {
+      const response = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newUser)
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        // Reset form and close dialog
+        setNewUser({
+          email: "",
+          nim: "",
+          name: "",
+          prodi: "",
+          gender: "M",
+          phone: "",
+          role: "VOTER",
+          password: "",
+        })
+        setIsCreateDialogOpen(false)
+        await loadUsers()
+      } else {
+        setCreateError(data.error || "Gagal membuat user")
+      }
+    } catch (err) {
+      console.error("Error creating user:", err)
+      setCreateError("Terjadi kesalahan saat membuat user")
+    } finally {
+      setIsCreating(false)
+    }
+  }
+
   const getRoleBadgeVariant = (role: string) => {
     switch (role) {
       case "SUPER_ADMIN":
@@ -125,10 +178,157 @@ export default function UserManagement() {
               <CardTitle>Manajemen Pengguna</CardTitle>
               <CardDescription>Kelola data pengguna dan hak akses sistem</CardDescription>
             </div>
-            <Button onClick={loadUsers} variant="outline">
-              <RefreshCw className="mr-2 h-4 w-4" />
-              Refresh
-            </Button>
+            <div className="flex gap-2">
+              <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button>
+                    <UserPlus className="mr-2 h-4 w-4" />
+                    Buat User Baru
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle>Buat User Baru</DialogTitle>
+                    <DialogDescription>
+                      Masukkan data user baru. Semua field wajib diisi kecuali nomor telepon.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    {createError && (
+                      <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md">
+                        {createError}
+                      </div>
+                    )}
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="email" className="text-right">
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={newUser.email}
+                        onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+                        className="col-span-3"
+                        placeholder="user@example.com"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="nim" className="text-right">
+                        NIM
+                      </Label>
+                      <Input
+                        id="nim"
+                        value={newUser.nim}
+                        onChange={(e) => setNewUser({ ...newUser, nim: e.target.value })}
+                        className="col-span-3"
+                        placeholder="123456789"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-right">
+                        Nama
+                      </Label>
+                      <Input
+                        id="name"
+                        value={newUser.name}
+                        onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+                        className="col-span-3"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="prodi" className="text-right">
+                        Prodi
+                      </Label>
+                      <Input
+                        id="prodi"
+                        value={newUser.prodi}
+                        onChange={(e) => setNewUser({ ...newUser, prodi: e.target.value })}
+                        className="col-span-3"
+                        placeholder="Teknik Informatika"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="gender" className="text-right">
+                        Gender
+                      </Label>
+                      <Select
+                        value={newUser.gender}
+                        onValueChange={(value) => setNewUser({ ...newUser, gender: value })}
+                      >
+                        <SelectTrigger className="col-span-3">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="M">Laki-laki</SelectItem>
+                          <SelectItem value="F">Perempuan</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="phone" className="text-right">
+                        Telepon
+                      </Label>
+                      <Input
+                        id="phone"
+                        value={newUser.phone}
+                        onChange={(e) => setNewUser({ ...newUser, phone: e.target.value })}
+                        className="col-span-3"
+                        placeholder="08123456789 (opsional)"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="role" className="text-right">
+                        Role
+                      </Label>
+                      <Select
+                        value={newUser.role}
+                        onValueChange={(value) => setNewUser({ ...newUser, role: value })}
+                      >
+                        <SelectTrigger className="col-span-3">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="VOTER">Voter</SelectItem>
+                          <SelectItem value="ADMIN">Admin</SelectItem>
+                          <SelectItem value="MONITORING">Monitoring</SelectItem>
+                          <SelectItem value="SUPER_ADMIN">Super Admin</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="password" className="text-right">
+                        Password
+                      </Label>
+                      <Input
+                        id="password"
+                        type="password"
+                        value={newUser.password}
+                        onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
+                        className="col-span-3"
+                        placeholder="Minimal 8 karakter"
+                      />
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <Button
+                      variant="outline"
+                      onClick={() => setIsCreateDialogOpen(false)}
+                      disabled={isCreating}
+                    >
+                      Batal
+                    </Button>
+                    <Button onClick={handleCreateUser} disabled={isCreating}>
+                      {isCreating ? "Membuat..." : "Buat User"}
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+              <Button onClick={loadUsers} variant="outline">
+                <RefreshCw className="mr-2 h-4 w-4" />
+                Refresh
+              </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>
