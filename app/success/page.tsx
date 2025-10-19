@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Vote, User, Calendar, LogOut, Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
-import Image from "next/image"
 
 interface User {
   id: string
@@ -18,6 +17,7 @@ interface User {
 
 interface VoteData {
   id: string
+  position: string
   candidateName: string
   candidateNim: string
   createdAt: string
@@ -32,7 +32,7 @@ interface VotingStats {
 
 export default function SuccessPage() {
   const [user, setUser] = useState<User | null>(null)
-  const [voteData, setVoteData] = useState<VoteData | null>(null)
+  const [votes, setVotes] = useState<VoteData[]>([])
   const [votingStats, setVotingStats] = useState<VotingStats[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
@@ -69,8 +69,8 @@ export default function SuccessPage() {
 
         if (statusResponse.ok) {
           const statusData = await statusResponse.json()
-          if (statusData.vote) {
-            setVoteData(statusData.vote)
+          if (statusData.votes && statusData.votes.length > 0) {
+            setVotes(statusData.votes)
           }
         }
 
@@ -110,6 +110,10 @@ export default function SuccessPage() {
       // Still redirect even if logout fails
       router.push("/")
     }
+  }
+
+  const getPositionLabel = (position: string) => {
+    return position === 'KETUA_HIMPUNAN' ? 'Ketua Himpunan' : 'Sekretaris Jenderal'
   }
 
   if (loading) {
@@ -185,8 +189,8 @@ export default function SuccessPage() {
                   <div>
                     <p className="text-sm text-muted-foreground">Waktu Vote</p>
                     <p className="font-semibold">
-                      {voteData?.createdAt
-                        ? new Date(voteData.createdAt).toLocaleString("id-ID", {
+                      {votes.length > 0
+                        ? new Date(votes[votes.length - 1].createdAt).toLocaleString("id-ID", {
                             dateStyle: "full",
                             timeStyle: "short",
                           })
@@ -198,21 +202,32 @@ export default function SuccessPage() {
                   </div>
                 </div>
 
-                {voteData && (
+                {votes.length > 0 && (
                   <div className="border-t pt-4">
-                    <p className="text-sm text-muted-foreground mb-2">Kandidat yang Dipilih</p>
-                    <div className="flex items-center gap-4 p-4 bg-muted/50 rounded-lg">
-                      <div className="relative w-16 h-16">
-                        <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                          <User className="h-8 w-8 text-gray-400" />
+                    <p className="text-sm text-muted-foreground mb-3">Kandidat yang Dipilih</p>
+                    <div className="space-y-3">
+                      {votes.map((vote) => (
+                        <div key={vote.id} className="p-4 bg-muted/50 rounded-lg border">
+                          <div className="flex items-start justify-between mb-2">
+                            <Badge variant="secondary" className="text-xs">
+                              {getPositionLabel(vote.position)}
+                            </Badge>
+                          </div>
+                          <div className="flex items-center gap-4">
+                            <div className="relative w-12 h-12">
+                              <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
+                                <User className="h-6 w-6 text-gray-400" />
+                              </div>
+                            </div>
+                            <div>
+                              <h3 className="font-semibold text-base">{vote.candidateName}</h3>
+                              <p className="text-sm text-muted-foreground">
+                                NIM: {vote.candidateNim}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg">{voteData.candidateName}</h3>
-                        <p className="text-sm text-muted-foreground">
-                          NIM: {voteData.candidateNim}
-                        </p>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -232,7 +247,7 @@ export default function SuccessPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-semibold">Status Vote</p>
-                  <p className="text-sm text-muted-foreground">Anda telah berhasil memberikan suara</p>
+                  <p className="text-sm text-muted-foreground">Anda telah berhasil memberikan suara untuk kedua posisi</p>
                 </div>
                 <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
                   <CheckCircle className="mr-1 h-3 w-3" />
@@ -306,8 +321,8 @@ export default function SuccessPage() {
 
           {/* Footer */}
           <div className="text-center text-sm text-muted-foreground pt-8 border-t">
-            <p>Pemilihan Presiden Mahasiswa ITERA 2024</p>
-            <p>Sistem Voting Digital - Institut Teknologi Sumatera</p>
+            <p>Pemilihan Ketua Himpunan & Sekjen HMTEKIA 2024</p>
+            <p>Sistem Voting Digital - Himpunan Mahasiswa Teknik Kimia ITERA</p>
           </div>
         </div>
       </div>

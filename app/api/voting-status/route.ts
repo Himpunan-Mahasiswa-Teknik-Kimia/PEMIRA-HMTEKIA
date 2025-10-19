@@ -25,8 +25,8 @@ export async function GET(request: NextRequest) {
       orderBy: { createdAt: 'desc' }
     })
 
-    // Get user's vote if exists
-    const vote = await prisma.vote.findUnique({
+    // Get user's votes (both Ketua Himpunan and Sekjen)
+    const votes = await prisma.vote.findMany({
       where: { userId: user.id },
       include: {
         candidate: {
@@ -35,7 +35,8 @@ export async function GET(request: NextRequest) {
             nim: true
           }
         }
-      }
+      },
+      orderBy: { createdAt: 'asc' }
     })
 
     const canVote = votingSession?.isValidated &&
@@ -57,12 +58,13 @@ export async function GET(request: NextRequest) {
         isUsed: votingSession.isUsed,
         expiresAt: votingSession.expiresAt
       } : null,
-      vote: vote ? {
+      votes: votes.map(vote => ({
         id: vote.id,
+        position: vote.position,
         candidateName: vote.candidate.name,
         candidateNim: vote.candidate.nim,
         createdAt: vote.createdAt
-      } : null,
+      })),
       canVote
     })
   } catch (error) {
