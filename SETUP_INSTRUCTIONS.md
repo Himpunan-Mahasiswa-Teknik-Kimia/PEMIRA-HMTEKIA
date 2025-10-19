@@ -5,7 +5,7 @@ This is a Next.js-based voting application for ITERA (Institut Teknologi Sumater
 
 ## Technology Stack
 - **Frontend**: Next.js 14, React 18, TypeScript
-- **Database**: PostgreSQL (via Supabase)
+- **Database**: PostgreSQL
 - **ORM**: Prisma
 - **Authentication**: Custom Next.js API routes
 - **Styling**: Tailwind CSS, Radix UI components
