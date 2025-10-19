@@ -125,7 +125,7 @@ export default function WaitingPage() {
               <Clock className="h-7 w-7 text-primary-foreground" />
             </div>
             <div className="text-left">
-              <h1 className="font-bold text-xl text-foreground">ITERA Election</h1>
+              <h1 className="font-bold text-xl text-foreground">HMTEKIA Election</h1>
               <p className="text-sm text-muted-foreground">Menunggu Validasi</p>
             </div>
           </div>
@@ -225,7 +225,7 @@ export default function WaitingPage() {
                   <p>
                     <strong>Kontak Panitia:</strong>
                   </p>
-                  <p>Email: pemilu@itera.ac.id</p>
+                  <p>Email: hmtekia@itera.ac.id</p>
                   <p>WhatsApp: +62 812-3456-7890</p>
                 </div>
               </div>

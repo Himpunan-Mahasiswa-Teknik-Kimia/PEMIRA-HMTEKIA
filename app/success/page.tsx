@@ -146,7 +146,7 @@ export default function SuccessPage() {
               <CheckCircle className="h-7 w-7 text-white" />
             </div>
             <div className="text-left">
-              <h1 className="font-bold text-xl text-foreground">ITERA Election</h1>
+              <h1 className="font-bold text-xl text-foreground">HMTEKIA Election</h1>
               <p className="text-sm text-muted-foreground">Vote Berhasil</p>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function SuccessPage() {
               </div>
               <CardTitle className="text-2xl text-green-800">Vote Berhasil Disimpan!</CardTitle>
               <CardDescription className="text-green-700">
-                Terima kasih telah berpartisipasi dalam Pemilihan Presiden Mahasiswa ITERA 2024
+                Terima kasih telah berpartisipasi dalam Pemilihan Ketua Himpunan & Sekjen HMTEKIA 2024
               </CardDescription>
             </CardHeader>
           </Card>
