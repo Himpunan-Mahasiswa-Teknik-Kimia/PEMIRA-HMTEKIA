@@ -91,6 +91,7 @@ class ApiClient {
         name: data.name?.trim(),
         nim: data.nim?.trim(),
         prodi: data.prodi?.trim(),
+        position: data.position,
         visi: data.visi?.trim(),
         misi: data.misi?.trim(),
         photo: data.photo?.trim() || null
@@ -112,6 +113,7 @@ class ApiClient {
     if (data.name !== undefined) cleanData.name = data.name?.trim()
     if (data.nim !== undefined) cleanData.nim = data.nim?.trim()
     if (data.prodi !== undefined) cleanData.prodi = data.prodi?.trim()
+    if (data.position !== undefined) cleanData.position = data.position
     if (data.visi !== undefined) cleanData.visi = data.visi?.trim()
     if (data.misi !== undefined) cleanData.misi = data.misi?.trim()
     if (data.photo !== undefined) cleanData.photo = data.photo?.trim() || null

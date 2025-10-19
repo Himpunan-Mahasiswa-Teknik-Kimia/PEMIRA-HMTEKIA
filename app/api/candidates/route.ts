@@ -16,22 +16,25 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    console.log('Loading candidates for user:', user.id)
+    console.log('Loading candidates for user:', user.id, 'role:', user.role)
 
-    // Get active candidates
+    // For admins and super admins, show all candidates
+    // For regular users, show only active candidates
+    const isAdmin = user.role === 'SUPER_ADMIN' || user.role === 'ADMIN'
+    
     const candidates = await prisma.candidate.findMany({
-      where: { 
-        isActive: true 
-      },
+      where: isAdmin ? {} : { isActive: true },
       select: {
         id: true,
         name: true,
         nim: true,
         prodi: true,
+        position: true,
         visi: true,
         misi: true,
         photo: true,
-        isActive: true
+        isActive: true,
+        createdAt: true
       },
       orderBy: { 
         createdAt: 'asc' 
@@ -59,9 +62,9 @@ export async function POST(request: NextRequest) {
       return authResult
     }
 
-    const { name, nim, prodi, visi, misi, photo } = await request.json()
+    const { name, nim, prodi, position, visi, misi, photo } = await request.json()
 
-    if (!name || !nim || !prodi || !visi || !misi) {
+    if (!name || !nim || !prodi || !position || !visi || !misi) {
       return NextResponse.json(
         { error: 'All fields are required' },
         { status: 400 }
@@ -73,6 +76,7 @@ export async function POST(request: NextRequest) {
         name,
         nim,
         prodi,
+        position,
         visi,
         misi,
         photo: photo || null

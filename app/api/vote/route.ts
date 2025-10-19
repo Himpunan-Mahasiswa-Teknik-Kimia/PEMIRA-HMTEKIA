@@ -90,6 +90,13 @@ export async function POST(request: NextRequest) {
 
     console.log('Valid voting session found:', votingSession.id)
 
+    // Check existing votes BEFORE creating new one
+    const existingVotesCount = await prisma.vote.count({
+      where: { userId: user.id }
+    })
+
+    console.log('📊 User has', existingVotesCount, 'existing vote(s) before this vote')
+
     // Create vote in a transaction
     const result = await prisma.$transaction(async (tx) => {
       // Create the vote
@@ -101,13 +108,17 @@ export async function POST(request: NextRequest) {
         }
       })
 
-      // Check if user has voted for both positions
-      const userVotes = await tx.vote.findMany({
-        where: { userId: user.id }
-      })
+      console.log('✅ Vote created:', { voteId: vote.id, userId: user.id, position })
 
-      // If user has voted for both positions, mark session as used and user as hasVoted
-      if (userVotes.length >= 2) {
+      // Calculate total votes: existing votes + this new vote
+      const totalVotesAfter = existingVotesCount + 1
+
+      console.log('📊 Total votes after this vote:', totalVotesAfter)
+
+      // If user has voted for both positions (2 votes total), mark session as used and user as hasVoted
+      if (totalVotesAfter >= 2) {
+        console.log('✅ User has completed voting for both positions, updating hasVoted status')
+        
         await tx.user.update({
           where: { id: user.id },
           data: { hasVoted: true }
@@ -117,27 +128,26 @@ export async function POST(request: NextRequest) {
           where: { id: votingSession.id },
           data: { isUsed: true }
         })
+
+        console.log('✅ User hasVoted status updated to true')
+      } else {
+        console.log('ℹ️ User has voted for', totalVotesAfter, 'position(s), waiting for both positions')
       }
 
-      return vote
+      return { vote, totalVotesAfter }
     })
 
-    console.log('Vote recorded successfully:', result.id)
-
-    // Check if user has completed both votes
-    const totalVotes = await prisma.vote.count({
-      where: { userId: user.id }
-    })
+    console.log('Vote recorded successfully:', result.vote.id)
 
     return NextResponse.json({ 
       success: true,
       message: 'Vote recorded successfully',
       vote: {
-        id: result.id,
-        candidateId: result.candidateId,
-        position: result.position
+        id: result.vote.id,
+        candidateId: result.vote.candidateId,
+        position: result.vote.position
       },
-      completedVoting: totalVotes >= 2
+      completedVoting: result.totalVotesAfter >= 2
     })
   } catch (error) {
     console.error('Vote error:', error)

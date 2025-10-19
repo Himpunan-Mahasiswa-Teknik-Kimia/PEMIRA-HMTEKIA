@@ -32,7 +32,6 @@ interface Candidate {
   isActive: boolean
   voteCount?: number
   createdAt: string
-  updatedAt: string
 }
 
 export default function CandidateManagement() {

@@ -36,6 +36,15 @@ export default function UserManagement() {
 
   useEffect(() => {
     loadUsers()
+
+    // Set up auto-refresh every 10 seconds to update voting status in real-time
+    const interval = setInterval(() => {
+      loadUsers()
+    }, 10000) // Refresh every 10 seconds
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   useEffect(() => {
