@@ -8,25 +8,25 @@ async function seedAdminUsers() {
     
     const adminUsers = [
       {
-        nim: 'SUPERADMIN001',
+        nim: '00000000001',
         name: 'SUPER ADMIN',
         prodi: 'ADMINISTRATOR',
         role: 'SUPER_ADMIN'
       },
       {
-        nim: 'ADMIN001',
+        nim: '00000000002',
         name: 'ADMIN 1',
         prodi: 'ADMINISTRATOR',
         role: 'ADMIN'
       },
       {
-        nim: 'ADMIN002',
+        nim: '00000000003',
         name: 'ADMIN 2',
         prodi: 'ADMINISTRATOR',
         role: 'ADMIN'
       },
       {
-        nim: 'MONITORING001',
+        nim: '00000000004',
         name: 'MONITORING 1',
         prodi: 'ADMINISTRATOR',
         role: 'MONITORING'
