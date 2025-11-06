@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     response.cookies.set('user-session', '', {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: 'lax',
       maxAge: 0, // This will delete the cookie
       path: '/' // Make sure to clear from root path
     })
