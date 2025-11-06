@@ -15,6 +15,7 @@
     "seed:candidates": "node scripts/seed-sample-candidates.js",
     "seed:candidates:reset": "node scripts/reset-and-seed-candidates.js",
     "seed:all": "npm run seed:users && npm run seed:admins && npm run seed:candidates",
+    "push:mahasiswa": "node scripts/seed-users-from-csv.js",
     "db:stats": "node scripts/check-database-stats.js",
     "db:cleanup": "node scripts/cleanup-duplicate-votes.js",
     "db:migrate-dual": "node scripts/migrate-to-dual-voting.js"
