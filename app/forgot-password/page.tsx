@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+
+// Prevent static generation - this page handles dynamic form submission
+export const dynamic = 'force-dynamic'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'

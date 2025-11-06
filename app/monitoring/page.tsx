@@ -1,6 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
+
+// Prevent static generation - this page requires runtime data
+export const dynamic = 'force-dynamic'
 import { useRouter } from "next/navigation"
 import { ApiClient } from "@/lib/api-client"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"

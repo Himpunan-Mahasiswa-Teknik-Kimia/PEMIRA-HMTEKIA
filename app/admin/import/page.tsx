@@ -1,6 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+// Prevent static generation - this page requires authentication
+export const dynamic = 'force-dynamic';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -21,7 +24,7 @@ export default function ImportStudentsPage() {
   const router = useRouter();
 
   // Check if user is admin
-  useState(() => {
+  useEffect(() => {
     const checkAuth = async () => {
       try {
         const { user } = await ApiClient.getUser();

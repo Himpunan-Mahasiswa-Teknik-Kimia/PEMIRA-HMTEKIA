@@ -1,5 +1,8 @@
 "use client"
 
+// Prevent static generation - this page checks authentication
+export const dynamic = 'force-dynamic'
+
 import type React from "react"
 import { useState, useEffect, Suspense } from "react"
 import { Button } from "@/components/ui/button"
