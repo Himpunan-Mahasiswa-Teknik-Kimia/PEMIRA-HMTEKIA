@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
   try {
     const { email, password, nim, name } = await request.json()
     
-    // Login dengan NIM + Nama (untuk mahasiswa)
+    // Login dengan NIM + Nama (untuk semua user termasuk admin)
     if (nim && name) {
       console.log('Login attempt with NIM:', nim)
       
@@ -23,7 +23,9 @@ export async function POST(request: NextRequest) {
           nim: true,
           prodi: true,
           role: true,
-          hasVoted: true
+          hasVoted: true,
+          hasVotedKetuaBPH: true,
+          hasVotedSenator: true
         }
       })
 
@@ -37,19 +39,20 @@ export async function POST(request: NextRequest) {
       // Validasi nama (case insensitive)
       if (user.name.toLowerCase() !== nameTrim.toLowerCase()) {
         return NextResponse.json(
-          { error: 'Data mahasiswa tidak valid' },
+          { error: 'Data tidak valid' },
           { status: 401 }
         )
       }
 
-      console.log('Login successful for student:', user.nim)
+      console.log('Login successful for user:', user.nim, 'Role:', user.role)
       
       // Log login event
       try {
+        const actionType = user.role === 'VOTER' ? 'STUDENT_LOGIN_SUCCESS' : 'ADMIN_LOGIN_SUCCESS'
         await prisma.adminLog.create({
           data: {
             adminId: user.id,
-            action: 'STUDENT_LOGIN_SUCCESS',
+            action: actionType,
             target: user.nim,
             details: { role: user.role },
             ipAddress: request.headers.get('x-forwarded-for') || request.ip || ''
@@ -60,10 +63,8 @@ export async function POST(request: NextRequest) {
       }
 
       // Create response with user data
-      const userWithoutPassword = user
-      
       const response = NextResponse.json({
-        user: userWithoutPassword,
+        user: user,
         message: 'Login berhasil'
       })
 
@@ -80,9 +81,10 @@ export async function POST(request: NextRequest) {
       )
 
       // Set secure session cookie
+      // Note: secure should be false if not using HTTPS
       response.cookies.set('user-session', sessionToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: false, // Set to true only if using HTTPS
         sameSite: 'lax',
         maxAge: 60 * 60 * 24 * 7, // 7 days
         path: '/'
