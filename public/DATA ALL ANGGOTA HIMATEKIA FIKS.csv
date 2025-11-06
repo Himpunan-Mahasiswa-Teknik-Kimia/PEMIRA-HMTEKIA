@@ -1,0 +1,571 @@
+,No.,Nama Anggota,NIM,Prodi,Angkatan,Jenis Kelamin,Status
+,1,Yosia Abdi Cahyono,118280005,Teknik Kimia,2018,Laki-laki,Anggota Tetap
+,2,Fourka Fitra R.,118280012,Teknik Kimia,2018,Laki-laki,Anggota Tetap
+,3,Hendri Kurniawan,118280013,Teknik Kimia,2018,Laki-laki,Anggota Tetap
+,4,Andini Nila Hastari,118280023,Teknik Kimia,2018,Perempuan,Anggota Tetap
+,5,Anggi Pratiwi,118280029,Teknik Kimia,2018,Perempuan,Anggota Tetap
+,6,LUFY EKA M.,118280063,Teknik Kimia,2018,Laki-laki,Anggota Tetap
+,7,GREGORY KEVAN P.,118280078,Teknik Kimia,2018,Laki-laki,Anggota Tetap
+,8,Muhammad Aji Saputra,119280003,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,9,Alfina Pajrin,119280008,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,10,Wulan Asmarani,119280009,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,11,Athallah Satrionindya Herlambang,119280015,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,12,Rizky Dimas Prasetyo,119280020,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,13,Andhika Rahman Setiawan Fajri,119280025,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,14,yuni kurnia sari,119280029,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,15,Sistri Zelika,119280035,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,16,Ari Wijaya Kusuma,119280037,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,17,Wisnu widya utama,119280042,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,18,Renata.M.Sinabutar,119280043,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,19,Sri Mulyaningsih,119280044,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,20,Muhammad Fajri,119280045,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,21,Fhinnesya Osyama Ladynia,119280050,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,22,Annisa Mifhtanti,119280055,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,23,Antonius Prasetyo,119280068,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,24,Siti Aisyah Rahimah Aulia,119280083,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,25,Mega Tiara,119280084,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,26,Anggun Amak Bolak Situngkir,119280087,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,27,Avidah analisa reta,119280088,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,28,Fadly Septian,119280092,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,29,Bagus Gelorawan Sanjaya,119280093,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,30,Rafli Rinaldi,119280103,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,31,Dimas Yoga Harjanto,119280104,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,32,Conny Octaviani,119280105,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,33,Vanisa helena galingging,119280110,Teknik Kimia,2019,Perempuan,Anggota Tetap
+,34,Bima Virgiansyah Putra,119280113,Teknik Kimia,2019,Laki-laki,Anggota Tetap
+,35,Marlin Novytasari,120280004,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,36,Kartini Mayasari Sirait,120280011,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,37,Mega Mutiara Sari,120280021,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,38,Ichvan Yoreands Pranata,120280022,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,39,Roy Naldy,120280035,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,40,Dilah Hardiana,120280045,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,41,Ashilah Diandra Hernawan,120280048,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,42,Monica Rechan Halimatu Syakdiah,120280052,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,43,Ihsan Maulana Ahmad,120280068,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,44,Salsabila Fitri Hudiyah,120280077,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,45,M. Raju Kinasta P,120280078,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,46,Bahari Timotius Manurung,120280081,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,47,Aditia Fajar Ramadhan,120280085,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,48,Anita Arsad,120280092,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,49,Khofifah Anggitiya Ningrum,120280093,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,50,Naza Silva Chalula,120280099,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,51,Angeline Nauli,120280101,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,52,Natania Anggreani Pradita,120280116,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,53,Theresia Ester Putri Lisa Pangaribuan,120280121,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,54,Hottua Ernest Fortunatus,120280122,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,55,Tiurmaida Gebryela Simanjuntak,120280123,Teknik Kimia,2020,Perempuan,Anggota Tetap
+,56,Alvindo Jhohannes,120280125,Teknik Kimia,2020,Laki-laki,Anggota Tetap
+,57,Aisyah Ramadhini,121280002,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,58,Siti Nurchasanah,121280003,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,59,Jabir Shoji Arhab,121280006,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,60,Deka Syabina Nirmala,121280007,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,61,Ianda Pristian,121280009,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,62,Tria Diva Maharani,121280010,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,63,Reygita Desli Sebrina,121280011,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,64,Rani Setyowati,121280012,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,65,Flora Meika Purba,121280013,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,66,Hanna Abigail L. Tobing,121280014,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,67,Syahirah Zahrah Nurjannah,121280016,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,68,Rahardi Pratama,121280018,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,69,Annas Ridho Kurniawan,121280019,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,70,Putri Meiliana,121280020,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,71,Rihayu,121280021,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,72,Ridho Ramadhan Jakop,121280022,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,73,Dini Dia Dara Sinaga,121280023,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,74,Zahra Hanifanisa,121280024,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,75,Disty Rahmawati,121280025,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,76,Merliana Putri Munzela,121280026,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,77,Ritchie Naufal Akbar Pratama,121280027,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,78,Nola Amanda Maharani,121280028,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,79,Ramadhina Azzahra Mualimah,121280029,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,80,Khaysa Nur Azima,121280030,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,81,Bagus Robianto,121280031,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,82,Ahmad Farhan,121280032,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,83,Dewi Sinta,121280033,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,84,Berliana Putri Agustina,121280034,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,85,Shabina Rizky Audry,121280035,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,86,Andini Gustia Putri,121280036,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,87,Lijeti Girsang,121280037,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,88,Della Yosia Situmorang,121280039,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,89,Aulia Wulan Sari,121280040,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,90,Ahmad Labib Firjatullah,121280041,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,91,Nilam Junita,121280042,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,92,Andreas Dwi Nugroho,121280043,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,93,Desti Aprilia,121280044,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,94,Dwinda Salsabila,121280045,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,95,Maudy Feronika Sinabutar,121280046,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,96,Ahmad Faisal,121280047,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,97,Abror Sida Mubin,121280048,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,98,Triya Yuli Andini,121280049,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,99,Fakhri Ramadhan,121280053,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,100,Nabila Putri Sulaeman,121280054,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,101,Ruth Elisa Sidabutar,121280055,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,102,Salsabilla Zakina Sutarman,121280056,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,103,Deris Syafrudin,121280057,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,104,Martin Nahum Pangaribuan,121280058,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,105,Mardliyyah,121280059,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,106,Arinda Yolanica Prastyo,121280061,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,107,Ageng Kaka Prayoga,121280062,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,108,Inggit Ambarani,121280063,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,109,Titus Maruli Sebastian Napitupulu,121280064,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,110,Vandy Vallen,121280065,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,111,Devy Theresia Arta Kristy Aritonang,121280066,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,112,Dyah Mesha Lohita,121280067,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,113,Naomi Yolanda Pangaribuan,121280068,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,114,Renita Ariska,121280069,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,115,Teguh Permana,121280070,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,116,Gilang Ramadhan,121280071,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,117,Tuti Lutfiah,121280072,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,118,Daffa Anang Rahmatullah,121280073,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,119,Gladis Ardya Putri,121280074,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,120,Aisyah Puti Maharani,121280075,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,121,Fathurahman Faisal,121280076,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,122,Maria Yohanna,121280077,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,123,Hayrunnisa,121280079,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,124,Andreas Daniel Kusuma,121280080,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,125,Muhammad Dliyaaul Zamal,121280081,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,126,Fatimah Wulan Azzahra,121280082,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,127,Nova Muhamad Sholikin,121280083,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,128,Muhammad Kamal,121280084,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,129,Ahyatul Ihsan,121280085,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,130,Tia Meyrina,121280086,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,131,Riky Darmawan,121280087,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,132,Dhanda Ahmad Valendra,121280088,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,133,Sindy Fitria Amanda,121280089,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,134,Nelson Alfares,121280090,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,135,Erwin Purba,121280091,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,136,Yunita Dewi Arum,121280092,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,137,Diyan Adelia,121280093,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,138,Evi Yulianti,121280094,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,139,Hendra,121280095,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,140,Aji Hafidz Talaga,121280096,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,141,Tsalsabilla Nur Rezqia,121280097,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,142,Dhany Ghufroon,121280099,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,143,Listia Yunita,121280100,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,144,Andri Muftya Annisa Fitri,121280101,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,145,M. Abdullah Azzam,121280102,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,146,Bagas Wahyu Pradana,121280103,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,147,Dimas Anggoro,121280104,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,148,Bertha Nofitriana,121280105,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,149,Adinda Putri,121280106,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,150,Ade May Trikusi Rahma Sari,121280107,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,151,Saskia Dwi Zachrani,121280108,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,152,Erina Azzahra,121280109,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,153,Kelvin,121280110,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,154,Wanti Meilinda,121280111,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,155,Salsabila Fauzuliyah,121280112,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,156,Fadhil Apryan Ahmad,121280114,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,157,Diana Rahmawati,121280116,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,158,Fawwaz Hugo Facira Putra,121280118,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,159,Elfira Wardani Putri,121280119,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,160,Muhammad Rusydi,121280120,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,161,Desy Annisa Putri,121280122,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,162,Fatma Aisyah,121280123,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,163,Siti Fathia,121280124,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,164,Putri Tasya Br. Tobing,121280126,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,165,Eduard Gabriel Ricardo Silitonga,121280127,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,166,Firman Simbolon,121280128,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,167,Yosefine Fi Orella A Situmeang,121280130,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,168,Octa Sunari Sidabutar,121280131,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,169,Destani Sihotang,121280132,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,170,Vera Meliana Pasaribu,121280134,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,171,Eykhel Sykhles Tarigan,121280135,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,172,Elvi Agustina Sianturi,121280136,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,173,Yolanda Natalia,121280139,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,174,Firman Lorensius Siboro,121280140,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,175,Tria Aulia Wulandari,121280141,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,176,Alfido Samdoi Bancin,121280142,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,177,Melani Karisma Sitorus,121280143,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,178,Lioni Putri Kinansih Damanik,121280144,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,179,Rani Mayang Sari,121280145,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,180,Fajar Divo Ferdiasyah,121280146,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,181,Michael Reynaldi,121280147,Teknik Kimia,2021,Laki-laki,Anggota Tetap
+,182,Rahma Dhea Saputri,121280150,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,183,Salwa Ekdra Triseptia,121280152,Teknik Kimia,2021,Perempuan,Anggota Tetap
+,184,AKTIRA AKMALIA AZIZ,122280001,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,185,HERLINA PUJIATI,122280002,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,186,HERLINA YUNITA AGUSTINA,122280003,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,187,NUR AMILYA PUTRI,122280004,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,188,RANIE NOVALIA,122280005,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,189,BONITA YULIANA LESTARI,122280007,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,190,SAPNA PERDANI AYUNDA PUTRI,122280008,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,191,GLADIS MAWARNI,122280009,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,192,EVA DIAN SARI SIMAMORA,122280010,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,193,DEWI PUTRI YENNY,122280011,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,194,MEYLANI DWI NUFARINDA,122280012,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,195,EGYF OKTAFIO HENDRAWAN,122280013,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,196,ANGGI YUANA PRATIWI,122280014,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,197,SALSABILA MUHTAMAR,122280015,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,198,MUHAMMAD HAFIZ RISQULLOH,122280016,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,199,PUJANOVAYANI MANULLANG,122280017,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,200,ELVIN SAPUTRA,122280018,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,201,RAFAEL DENNY SIHOTANG,122280019,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,202,PRATWI AYUNING RAHMA DEVI,122280020,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,203,FERINTAZA OKTANIA,122280021,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,204,MUHAMMAD RIFQI,122280022,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,205,DIVIA MARSHA,122280024,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,206,EDO NURFANDA,122280025,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,207,IRMA FEBRIANTI SIREGAR,122280026,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,208,ANNISA MEDIANA,122280027,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,209,DEA PAULINA TARIGAN,122280028,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,210,AMELIA SYIFA DIVANA PUTRI,122280030,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,211,ARIFINO DECIKA RACHMAN,122280031,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,212,RIEKE DELLAVIA EKA PUTRI,122280032,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,213,ELISIA JANET,122280033,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,214,DESRIA WINA SAFITRI,122280034,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,215,NADIA ABELLA SAFITRI,122280035,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,216,LIZA DWI ANGGRAINI,122280036,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,217,KHOIRUNNISA FAJRI,122280037,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,218,M. YASI ILHAM YUSNIA,122280038,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,219,ANJLE PAULINA S.,122280039,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,220,SRY OKTAVIANTY PURBA,122280040,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,221,MOHAMAD RIZKY ABDILLAH,122280041,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,222,ANUGRAH AYUB WASKITO,122280042,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,223,NASIRA AZ ZAHRA,122280043,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,224,MUHAMMAD BAGUS TRI JAYA SAPUTRA,122280044,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,225,KHOFIFAH NUR ISLAMI,122280045,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,226,A. AFDHAL FAHREZI,122280047,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,227,CHRISTIANO ADITYA BARUS,122280048,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,228,RAHMA YULIA,122280049,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,229,GRACIA ALFA BETHA SIMANJUNTAK,122280051,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,230,DZAKIAH ROMADHONA,122280052,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,231,IMANUEL SINAMBELA,122280053,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,232,DHINI RESTU NOVITRI,122280054,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,233,FAISAL FACHRIE ATMOKO,122280055,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,234,BAIHAQI SUDRAJAT,122280056,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,235,NAFADZA ADILINA BARLIAN,122280057,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,236,NABILA MEUTIA PUTRI,122280059,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,237,CHICI AZHARI,122280060,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,238,JOSUA WILLIEM SIGALINGGING,122280061,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,239,RIZKY SURYA ANUGRAH,122280063,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,240,MUHAMMAD HASBY AS SHIDIQ,122280064,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,241,SUCI OKTAVIYANI,122280065,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,242,LAUORA LEDIKA PURBA,122280066,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,243,RIVANDO PUTRA ANGGORO,122280067,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,244,AZZAHRA AL ADAWIYAH,122280068,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,245,AMEDEO CAVENDISH,122280069,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,246,AGRIADI DWI NUGROHO PUTO,122280070,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,247,ARYA OCTAVIANDI ARIF,122280071,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,248,YUDHA PRAMUDYA PUTRA,122280073,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,249,GUNAWAN MANIK,122280074,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,250,AIMAN FIRJATULLAH,122280075,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,251,SETIA DAMAI YANT,122280076,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,252,SHINTA MARIBOTO SILVIA SINAGA,122280077,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,253,YEHEZKIEL KACARIBU,122280079,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,254,LESTARI,122280080,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,255,MAULIDAH AZ ZAHRA,122280081,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,256,CIKA AMALIA SHABIRA,122280083,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,257,RARA AZHARA,122280084,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,258,NURUL AFIFAH ZAHRA,122280085,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,259,YUELIA SALSABILLA,122280086,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,260,KASIH PILIA,122280087,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,261,CAHYA RAHMAWATI,122280089,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,262,REZA FEBRIAN PUTRA,122280090,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,263,ULIL AFNI,122280091,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,264,DELA NURJANAH,122280092,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,265,RAYKE DHIYA FEBRIANTI,122280093,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,266,AWANGGA YULIANI SUKARNO,122280094,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,267,RONALDO MARADAT DONGORAN,122280095,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,268,HANIF FAWAZ ZAIM,122280097,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,269,RIO NOFRIANDI,122280099,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,270,ZULFIKAR RAMADHAN,122280100,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,271,ALFIAN FADILAH SANTOSO,122280101,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,272,DELVI ANSHORI,122280102,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,273,AL HUDA,122280103,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,274,VONY ZIKRI SAPUTRI,122280104,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,275,ARYANTI,122280106,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,276,TERIA OKTASARI,122280107,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,277,MUHAMMAD SANDYTAMA WINDNANTARA,122280108,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,278,TIARA DWI RISKY,122280109,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,279,MUTIA FEBRINA,122280110,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,280,MAYA SALSABILA,122280111,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,281,NUR MAULANA SYAHADAT,122280113,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,282,ADEL LIA RACHMA DANI,122280114,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,283,RANI HANTIKA PUTRI,122280115,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,284,VIOLA NURFITRI,122280116,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,285,FERNANDO ARATAU SINAGA,122280117,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,286,HANIFAH RIZKY NURJANNAH,122280118,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,287,SHELTY ATY PRIBADI,122280119,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,288,DHEA CHRISTIN BR GINTING,122280120,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,289,RYAN WELLAND,122280121,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,290,KOMANG AYU APRILIYANTI,122280123,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,291,SEPTIAN CRISTOPORUS SIHOTANG,122280124,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,292,LUTHFI SYARIF,122280125,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,293,HOIRUNNISA SALSABILA,122280126,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,294,AFRIANDINI,122280127,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,295,ALYA ADISTI KAMILA,122280128,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,296,NICO HENRA SOALOON PASARIBU,122280129,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,297,TRESYA SITI HARNI SARAGIH,122280130,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,298,RANA NUR AFIFAH,122280131,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,299,MERDIYAN HERIYANSYAH,122280132,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,300,RABBANI ACHMAD FAHLEFI,122280133,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,301,RIKA ENJELIA SIBARANI,122280135,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,302,GRACE CITRA MONALISA GULTOM,122280136,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,303,HELENA KALISTA TARIGAN,122280137,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,304,SEPTIANA RAJAGUKGUK,122280138,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,305,ANNISA MAHARANI SAHLI,122280139,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,306,MUHAMMAD FERDIANSYAH,122280140,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,307,JIMNI ROSPITA DEWI,122280141,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,308,RARA ARNILLA,122280142,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,309,RIFA AULIA NABILA,122280143,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,310,JELITA SINAGA,122280145,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,311,CATARINA DOMPAS,122280148,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,312,MARTIN JUANDANI NAINGGOLAN,122280149,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,313,BONA FENTURA,122280150,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,314,FINA FADILLAH,122280153,Teknik Kimia,2022,Perempuan,Anggota Tetap
+,315,MAHESA FEBRIAN RAMDANI,122280154,Teknik Kimia,2022,Laki-laki,Anggota Tetap
+,316,Vionesa Efendi,123280001,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,317,Bakti Selamat Telaumbanua,123280002,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,318,I Putu Arya Ditha,123280003,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,319,Ni Made Mulyantari,123280004,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,320,Stevani Olifia Br Siagian,123280005,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,321,Harianto Situmorang,123280006,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,322,Raflie Ariyanda Putra Raja Paksi,123280007,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,323,Mirro Imelda Putri Simarmata,123280008,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,324,Amelia Sisma Dewi,123280009,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,325,Cahyo Kusuma Wardana Putra,123280010,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,326,Tiara Nazia Zamil,123280011,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,327,Dino Atryanto,123280012,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,328,Ignatius Adji Rudy Utomo,123280013,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,329,Suci Octaviani,123280014,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,330,KADEK ANI ANGGRAENI,123280016,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,331,Beckanel Kasano Ginting manik,123280017,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,332,Laili junida,123280018,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,333,Jenie Nadya Eveline Hutabarat,123280019,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,334,Serfina Alisya,123280020,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,335,Via Citra Lestari,123280021,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,336,Zeanetta Anaya Gustri,123280023,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,337,Maya Salma Putri,123280024,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,338,Arifin Maulana Saputra,123280025,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,339,Adjie Salman Alfarizi,123280026,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,340,CHRISTIN EVALIN MANULLANG,123280027,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,341,Saut Josep Unedo Hutagaol,123280028,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,342,YESICA ERIYANTI NABABAN,123280029,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,343,Zasky hellinda putru,123280030,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,344,Khafiyya Fathimah Zalwa Pramoza,123280031,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,345,Muhammad Rafif Hezka,123280032,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,346,Herlinda Hutahaean,123280033,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,347,Stevani Karenia Girsang,123280034,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,348,Novia Fitriyani,123280036,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,349,Agustina Veronika Lumban Gaol,123280037,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,350,Ahmad Naufal Syafiq,123280038,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,351,Lelita Rizki Amalia,123280039,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,352,Serojati Maharani,123280040,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,353,Devi Hertanti Purba,123280041,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,354,Novita Anastasia,123280043,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,355,Rifa julianti,123280044,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,356,Achmad Jawahirul Fikri,123280045,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,357,Irfan Ananda Putra,123280047,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,358,Putri Susilowati,123280048,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,359,Rollis Aryatna Naibaho,123280050,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,360,Wahyu Saipullah,123280051,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,361,Kaila Zahra Aulia,123280052,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,362,Riyan Imanuel Siringoringo,123280053,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,363,Ocha Aulia Maharani,123280055,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,364,Tasya Rahma Putri,123280056,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,365,Gideon Galingging,123280057,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,366,Miftahurrizqi Hsb,123280058,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,367,Rika Febri Lestari,123280059,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,368,Dhea syaffira,123280061,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,369,Nuri Filza Mutiara Syahidah,123280062,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,370,Santa febrina hutauruk,123280063,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,371,putri rahmawati,123280064,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,372,Marissa Salsabila,123280065,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,373,Muhammad Rayyan Ziadi,123280066,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,374,Rivaldo Firmansyah,123280067,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,375,Rohila Limbong,123280068,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,376,Handhika Dzakiy Devana,123280069,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,377,Syakira Dian Rachmadiny,123280071,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,378,Zainal Arifin,123280072,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,379,Aidi Tahdidil Fikri,123280073,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,380,M. Hasan Ismail Chandra,123280074,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,381,William Yehezkiel Hutahaean,123280077,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,382,ahmad maulana saputra,123280078,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,383,Nur Amal Badriatin Muntafiah,123280079,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,384,Tessa Angelica Maharani Sihombing,123280080,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,385,Yolanda Eka Putri,123280081,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,386,Vincentsius Victory V,123280082,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,387,ivana angelita sinambela,123280083,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,388,Intan Ferranika,123280084,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,389,Elisabeth Zein Silalahi,123280085,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,390,Ade Irma Wulan Sari,123280086,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,391,Rahimah Zahra,123280087,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,392,Felicia Nabilah IE,123280088,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,393,Ayub Karo Karo,123280089,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,394,FIDIA NOVALIA PUTRI,123280090,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,395,Dita Amalia Agustin,123280091,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,396,Sarah Sianturi,123280093,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,397,Timbul Sanjaya Situmorang,123280095,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,398,Aqhilla esa Valencia,123280096,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,399,Gusti adam,123280097,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,400,Yesaya Situmorang,123280099,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,401,Elsa Deo Nadela Simarmata,123280100,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,402,Qalillul Rahman,123280101,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,403,Chyntia ribi khoirun nissa,123280103,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,404,Zalfarina Nathania Jawahir,123280104,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,405,Azhar Jihan Sabela,123280105,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,406,Perla Arum dapta,123280106,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,407,Lutfiah Saharani,123280107,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,408,Vischa Khoirunnisa,123280108,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,409,Rena Aprilia,123280110,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,410,Rizqiya Ayyasy Ayodia,123280111,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,411,Ike Nabila Yulistia Ningsih,123280112,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,412,Dhea Nofitasari,123280113,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,413,Muhammad Daffa Ramadhan,123280114,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,414,Adiaty Fratiwi Simanjuntak,123280115,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,415,Ayatullah Fatham Mubiina Hidayat,123280116,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,416,Sofia laura,123280117,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,417,Utari Rahmadani,123280118,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,418,Maurrent Elvira Zeany Gunawan,123280119,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,419,Stiven,123280120,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,420,Raffi Ramadhany,123280121,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,421,Alin Junarti,123280122,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,422,Jovandi Nicolas Junjun Berutu,123280123,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,423,Fahrozi Beldynansyah Harahap,123280125,Teknik Kimia,2023,Laki-laki,Anggota Tetap
+,424,Mira Diva Rahma,123280126,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,425,Siti Nur Azzahra,123280127,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,426,Apansa Hartiani Sitio,123280128,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,427,Nabila Fitri Andini,123280129,Teknik Kimia,2023,Perempuan,Anggota Tetap
+,428,Aryandave,124280001,Teknik Kimia,2024,,Anggota Muda
+,429,Ade Salsabila,124280002,Teknik Kimia,2024,,Anggota Muda
+,430,Sabrina Martines Nababan,124280003,Teknik Kimia,2024,,Anggota Muda
+,431,Sophiyani br Sembiring Meliala,124280004,Teknik Kimia,2024,,Anggota Muda
+,432,Anastasya Aulia,124280005,Teknik Kimia,2024,,Anggota Muda
+,433,TRISNA RAHAYU,124280006,Teknik Kimia,2024,,Anggota Muda
+,434,Deska Otafiani,124280007,Teknik Kimia,2024,,Anggota Muda
+,435,RITA KRISTIANI SIHOMBING,124280008,Teknik Kimia,2024,,Anggota Muda
+,436,SAFIRA SANDRA TARIGAN,124280009,Teknik Kimia,2024,,Anggota Muda
+,437,ZAKIA GADIS AULIA,124280010,Teknik Kimia,2024,,Anggota Muda
+,438,VIOLA AGUSTIN,124280011,Teknik Kimia,2024,,Anggota Muda
+,439,VANESA DIAS KAMILA PUTRI,124280012,Teknik Kimia,2024,,Anggota Muda
+,440,KEYSHA NAIMIRA PUTRI,124280013,Teknik Kimia,2024,,Anggota Muda
+,441,Zaskya Chairunnisa,124280014,Teknik Kimia,2024,,Anggota Muda
+,442,TIUR NATALI MANALU,124280015,Teknik Kimia,2024,,Anggota Muda
+,443,Irawaty Lingga,124280016,Teknik Kimia,2024,,Anggota Muda
+,444,AKHMAD FAUZI,124280017,Teknik Kimia,2024,,Anggota Muda
+,445,PRAYOGO SAPUTRA,124280018,Teknik Kimia,2024,,Anggota Muda
+,446,MARSYA PUTRI ANANDA,124280019,Teknik Kimia,2024,,Anggota Muda
+,447,Putri Indah Salsabila,124280020,Teknik Kimia,2024,,Anggota Muda
+,448,NAZLA PEBRIYANI,124280021,Teknik Kimia,2024,,Anggota Muda
+,449,Mega Anisa,124280022,Teknik Kimia,2024,,Anggota Muda
+,450,Rizky Dwi Hartanto,124280023,Teknik Kimia,2024,,Anggota Muda
+,451,ANNISAA NAJAH KHAIRIYYAH J,124280024,Teknik Kimia,2024,,Anggota Muda
+,452,ANDRIANI TRACY SEPGHANIA,124280025,Teknik Kimia,2024,,Anggota Muda
+,453,Alya Dwi Desianti,124280026,Teknik Kimia,2024,,Anggota Muda
+,454,MUHAMMAD HAWARI,124280027,Teknik Kimia,2024,,Anggota Muda
+,455,SALSA AMELIA PUTRI,124280028,Teknik Kimia,2024,,Anggota Muda
+,456,ASHAR SEPTIO RAMADHANA,124280029,Teknik Kimia,2024,,Anggota Muda
+,457,ZAHID ARBIDANTA,124280030,Teknik Kimia,2024,,Anggota Muda
+,458,Rasyid Zahran Ramadhan Nugrah,124280031,Teknik Kimia,2024,,Anggota Muda
+,459,HIDAYATUL MUSTAFID,124280032,Teknik Kimia,2024,,Anggota Muda
+,460,Handika Syachreza Pasha,124280033,Teknik Kimia,2024,,Anggota Muda
+,461,Rona Denggan Panjaitan,124280034,Teknik Kimia,2024,,Anggota Muda
+,462,Nanda Kurniansyah,124280035,Teknik Kimia,2024,,Anggota Muda
+,463,HAFIIDZURROHMAN GUNTORO,124280036,Teknik Kimia,2024,,Anggota Muda
+,464,ilham bintang pamungkas,124280037,Teknik Kimia,2024,,Anggota Muda
+,465,MUHAMMAD HASAN,124280038,Teknik Kimia,2024,,Anggota Muda
+,466,Muhammad Naufal Hanania,124280039,Teknik Kimia,2024,,Anggota Muda
+,467,Irham Pratama,124280040,Teknik Kimia,2024,,Anggota Muda
+,468,RIFKI ANDIKA AJI SAPUTRA,124280041,Teknik Kimia,2024,,Anggota Muda
+,469,ANASTHASIA PRIYANKA PRATIS,124280042,Teknik Kimia,2024,,Anggota Muda
+,470,PUTRI LAURENSIA,124280043,Teknik Kimia,2024,,Anggota Muda
+,471,MISSYELLIA ZAHRA NURDIVANI,124280044,Teknik Kimia,2024,,Anggota Muda
+,472,Arvin Damario Agung Putra,124280045,Teknik Kimia,2024,,Anggota Muda
+,473,ROMA SENTA TAMBA,124280046,Teknik Kimia,2024,,Anggota Muda
+,474,Diana Mayanti Sipayung,124280047,Teknik Kimia,2024,,Anggota Muda
+,475,Alia Rahmi Az Zahra,124280048,Teknik Kimia,2024,,Anggota Muda
+,476,MUHAMMAD AZRIEL MARLAN,124280049,Teknik Kimia,2024,,Anggota Muda
+,477,GORDON FRIENDLY SITANGGAN,124280050,Teknik Kimia,2024,,Anggota Muda
+,478,IRFAN HILMY SUSANTO,124280051,Teknik Kimia,2024,,Anggota Muda
+,479,RIKA AKNASIA TAMPUBOLON,124280052,Teknik Kimia,2024,,Anggota Muda
+,480,SANRIANA SINABANG,124280053,Teknik Kimia,2024,,Anggota Muda
+,481,Ferdinand Sitinjak,124280054,Teknik Kimia,2024,,Anggota Muda
+,482,NUR AZIZAH PUTRI IRMANIAR,124280055,Teknik Kimia,2024,,Anggota Muda
+,483,SALWA ULAYYANISA,124280056,Teknik Kimia,2024,,Anggota Muda
+,484,YOHANNA SILALAHI,124280057,Teknik Kimia,2024,,Anggota Muda
+,485,YOHANNA SILALAHI,124280058,Teknik Kimia,2024,,Anggota Muda
+,486,ANIQA HUSNA KHONSA,124280059,Teknik Kimia,2024,,Anggota Muda
+,487,ZIHAN LESTARI,124280060,Teknik Kimia,2024,,Anggota Muda
+,488,Nayla Azizatul Fitri,124280061,Teknik Kimia,2024,,Anggota Muda
+,489,Shazkia Aulia Latif,124280062,Teknik Kimia,2024,,Anggota Muda
+,490,CHINDY MEILANIE PUTRI,124280063,Teknik Kimia,2024,,Anggota Muda
+,491,DHINI AMELIA WINTA,124280064,Teknik Kimia,2024,,Anggota Muda
+,492,Naila Safitri,124280065,Teknik Kimia,2024,,Anggota Muda
+,493,GUSTI AULIA SHAFIRA,124280066,Teknik Kimia,2024,,Anggota Muda
+,494,SELVA DWI BR SURBAKTI,124280067,Teknik Kimia,2024,,Anggota Muda
+,495,Kristin Yuliana Silalahi,124280068,Teknik Kimia,2024,,Anggota Muda
+,496,ABDUL AZIZ AL ATSARI,124280069,Teknik Kimia,2024,,Anggota Muda
+,497,Dhemona Okta Vianty,124280070,Teknik Kimia,2024,,Anggota Muda
+,498,Daud,124280071,Teknik Kimia,2024,,Anggota Muda
+,499,SALSABILLA NIHEL UTAMA,124280072,Teknik Kimia,2024,,Anggota Muda
+,500,EKA EFRIELIA,124280073,Teknik Kimia,2024,,Anggota Muda
+,501,MARLINA WULANDARI,124280074,Teknik Kimia,2024,,Anggota Muda
+,502,Philip Abrian Dolok Saribu,124280075,Teknik Kimia,2024,,Anggota Muda
+,503,RIZA AL FATHY,124280076,Teknik Kimia,2024,,Anggota Muda
+,504,DEVI AULIA PUTRI,124280077,Teknik Kimia,2024,,Anggota Muda
+,505,SIMSON SANGAPAN SIANIPAR,124280078,Teknik Kimia,2024,,Anggota Muda
+,506,FIRYAL NAIMAH,124280079,Teknik Kimia,2024,,Anggota Muda
+,507,Mochammad Al Farriz Hasnil,124280080,Teknik Kimia,2024,,Anggota Muda
+,508,SALMA AULIA HASANAH,124280081,Teknik Kimia,2024,,Anggota Muda
+,509,MUHAMMAD ZAKI ARKAN,124280082,Teknik Kimia,2024,,Anggota Muda
+,510,BALQIS CAHYA NURANI,124280083,Teknik Kimia,2024,,Anggota Muda
+,511,JULIANTI,124280084,Teknik Kimia,2024,,Anggota Muda
+,512,NABILA PUTRI VITASAURA INCA,124280085,Teknik Kimia,2024,,Anggota Muda
+,513,RASYA PUTI ADIKHA PRAMESW,124280086,Teknik Kimia,2024,,Anggota Muda
+,514,PUTRI NAZIIHAH JUFLI,124280087,Teknik Kimia,2024,,Anggota Muda
+,515,NAYLA FERTIKA DEWI,124280088,Teknik Kimia,2024,,Anggota Muda
+,516,AZZAHRA FITRIANA,124280089,Teknik Kimia,2024,,Anggota Muda
+,517,Aqdam Syah Qodry,124280090,Teknik Kimia,2024,,Anggota Muda
+,518,Muhammad Daffa Firdaus,124280091,Teknik Kimia,2024,,Anggota Muda
+,519,HAFIZNI NOVITRI SYAWAL,124280092,Teknik Kimia,2024,,Anggota Muda
+,520,ARI ANGGARA PUTRA,124280093,Teknik Kimia,2024,,Anggota Muda
+,521,Zakia Belva Fitria,124280094,Teknik Kimia,2024,,Anggota Muda
+,522,RICKY SAPUTRA SIMANGUNSON,124280095,Teknik Kimia,2024,,Anggota Muda
+,523,Habil Pratama Putra Winarno,124280096,Teknik Kimia,2024,,Anggota Muda
+,524,LAMHOT TUA PARULIAN SIMBOL,124280097,Teknik Kimia,2024,,Anggota Muda
+,525,NAILI ZUKHRIYAH TANZILA,124280098,Teknik Kimia,2024,,Anggota Muda
+,526,Bunga Klaudia,124280099,Teknik Kimia,2024,,Anggota Muda
+,527,INDRA CRISTIAN BUTAR BUTAR,124280100,Teknik Kimia,2024,,Anggota Muda
+,528,HISYAM ABDUL HAFIZH,124280101,Teknik Kimia,2024,,Anggota Muda
+,529,Reygen Farensa,124280102,Teknik Kimia,2024,,Anggota Muda
+,530,GRACE SELA AVELI HUTAPEA,124280103,Teknik Kimia,2024,,Anggota Muda
+,531,DHINA SYAHIRA,124280104,Teknik Kimia,2024,,Anggota Muda
+,532,AUFA AKMAL RUSYDI MULYA,124280105,Teknik Kimia,2024,,Anggota Muda
+,533,MUHAMMAD RIFA ANDIYANSYAH,124280106,Teknik Kimia,2024,,Anggota Muda
+,534,RIZWANDHA FATHURRAHMAN A,124280107,Teknik Kimia,2024,,Anggota Muda
+,535,Zoyi Vahressy Harissyah,124280108,Teknik Kimia,2024,,Anggota Muda
+,536,ARDI MAULANA SAPUTRA,124280109,Teknik Kimia,2024,,Anggota Muda
+,537,FAUZAN FAWWAZ RAMADHAN,124280110,Teknik Kimia,2024,,Anggota Muda
+,538,BETTRAN ELPA SION PANGARIB,124280111,Teknik Kimia,2024,,Anggota Muda
+,539,SYAHDILA BUNGA LUTVITA M,124280112,Teknik Kimia,2024,,Anggota Muda
+,540,Ekia Timenta Sitinjak,124280113,Teknik Kimia,2024,,Anggota Muda
+,541,ANGGIE FEBRIANI,124280114,Teknik Kimia,2024,,Anggota Muda
+,542,IVONNE AZ ZAHRA SYAKRILLA K,124280115,Teknik Kimia,2024,,Anggota Muda
+,543,AFINA AZMI,124280116,Teknik Kimia,2024,,Anggota Muda
+,544,AHMAD FAJRI MURTADHO,124280117,Teknik Kimia,2024,,Anggota Muda
+,545,Reyhan Munqiz Oesman,124280118,Teknik Kimia,2024,,Anggota Muda
+,546,SRIWAHYUNI HUTABARAT,124280119,Teknik Kimia,2024,,Anggota Muda
+,547,Novelina Ronauli Br Simanjuntak,124280120,Teknik Kimia,2024,,Anggota Muda
+,548,MARCO IMMANUEL SIHOMBING,124280121,Teknik Kimia,2024,,Anggota Muda
+,549,Mohammad Arfel Alfath,124280122,Teknik Kimia,2024,,Anggota Muda
+,550,KAY CALEB HAREFA,124280123,Teknik Kimia,2024,,Anggota Muda
+,551,Satyo Pratama Singowiguno,124280124,Teknik Kimia,2024,,Anggota Muda
+,552,SALSA SALVADELIA SUSANTO,124280125,Teknik Kimia,2024,,Anggota Muda
+,553,Putri Ayu Pinasti,124280126,Teknik Kimia,2024,,Anggota Muda
+,554,M Devin Putra Ruzeno,124280127,Teknik Kimia,2024,,Anggota Muda
+,555,Rio Irawan Situmorang,124280128,Teknik Kimia,2024,,Anggota Muda
+,556,Resti Fauzana Putri,124280129,Teknik Kimia,2024,,Anggota Muda
+,557,RINDI ANI,124280130,Teknik Kimia,2024,,Anggota Muda
+,558,JUSTY SAPHIRA DEWI,124280131,Teknik Kimia,2024,,Anggota Muda
+,559,NURMALIA WIDYA MARSYA,124280132,Teknik Kimia,2024,,Anggota Muda
+,560,Maheswari Syifa Putri Kasenda,124280133,Teknik Kimia,2024,,Anggota Muda
+,561,AMMARA AQILA FAKHIRA,124280134,Teknik Kimia,2024,,Anggota Muda
+,562,Christian Wira Santara Sidabutar,124280135,Teknik Kimia,2024,,Anggota Muda
+,563,Ryaldi Fransiskus Manik,124280136,Teknik Kimia,2024,,Anggota Muda
+,564,MUHAMMAD LUTHFILHADI HARU,124280137,Teknik Kimia,2024,,Anggota Muda
+,565,MAULIDYA NUR BATIN,124280138,Teknik Kimia,2024,,Anggota Muda
+,566,Rafa Djauhariah Robiansyah,124280139,Teknik Kimia,2024,,Anggota Muda
+,567,DANIELLE EASTER JABIN SINUL,124280140,Teknik Kimia,2024,,Anggota Muda
+,568,Wilmart Yhupah Hutasoit,124280141,Teknik Kimia,2024,,Anggota Muda
+,569,Muttaqin,124280142,Teknik Kimia,2024,,Anggota Muda
+,570,Daniel Pandapotan Simbolon,124280143,Teknik Kimia,2024,,Anggota Muda
