@@ -1,5 +1,5 @@
 {
-  "name": "my-v0-project",
+  "name": "pemira-himtekia",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,15 +10,8 @@
     "db:push": "npx prisma db push",
     "db:generate": "npx prisma generate",
     "db:studio": "npx prisma studio",
-    "seed:users": "node scripts/seed-users-from-csv.js",
-    "seed:admins": "node scripts/seed-admin-users.js",
-    "seed:candidates": "node scripts/seed-sample-candidates.js",
-    "seed:candidates:reset": "node scripts/reset-and-seed-candidates.js",
-    "seed:all": "npm run seed:users && npm run seed:admins && npm run seed:candidates",
-    "push:mahasiswa": "node scripts/seed-users-from-csv.js",
-    "db:stats": "node scripts/check-database-stats.js",
-    "db:cleanup": "node scripts/cleanup-duplicate-votes.js",
-    "db:migrate-dual": "node scripts/migrate-to-dual-voting.js"
+    "seed:core": "node prisma/seed.js",
+    "import:students": "node scripts/import-students.js \"public/DATA ALL ANGGOTA HIMATEKIA FIKS.csv\"",
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

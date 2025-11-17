@@ -2,6 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { getUserFromRequest, requireAdmin } from '@/lib/session'
+import { writeFile, mkdir } from 'fs/promises'
+import path from 'path'
 
 export async function GET(request: NextRequest) {
   try {
@@ -60,7 +62,43 @@ export async function POST(request: NextRequest) {
       return authResult
     }
 
-    const { name, nim, prodi, position, visi, misi, photo } = await request.json()
+    const contentType = request.headers.get('content-type') || ''
+
+    let name: string
+    let nim: string
+    let prodi: string
+    let position: string
+    let visi: string
+    let misi: string
+    let photo: string | null = null
+    let uploadedPhotoPath: string | null = null
+
+    if (contentType.includes('multipart/form-data')) {
+      const formData = await request.formData()
+      name = String(formData.get('name') || '')
+      nim = String(formData.get('nim') || '')
+      prodi = String(formData.get('prodi') || '')
+      position = String(formData.get('position') || '')
+      visi = String(formData.get('visi') || '')
+      misi = String(formData.get('misi') || '')
+      const photoField = formData.get('photo')
+      photo = photoField ? String(photoField) : null
+
+      const file = formData.get('photoFile') as File | null
+      if (file && typeof file === 'object') {
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'candidates')
+        await mkdir(uploadsDir, { recursive: true })
+        const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')
+        const fileName = `${Date.now()}_${safeName}`
+        const filePath = path.join(uploadsDir, fileName)
+        await writeFile(filePath, buffer)
+        uploadedPhotoPath = `/uploads/candidates/${fileName}`
+      }
+    } else {
+      const body = await request.json()
+      ;({ name, nim, prodi, position, visi, misi, photo } = body)
+    }
 
     if (!name || !nim || !prodi || !position || !visi || !misi) {
       return NextResponse.json(
@@ -84,8 +122,8 @@ export async function POST(request: NextRequest) {
         position,
         visi,
         misi,
-        photo: photo || null
-      }
+        photo: uploadedPhotoPath || photo || null,
+      },
     })
 
     return NextResponse.json({ 

@@ -81,21 +81,46 @@ class ApiClient {
   static async createCandidate(data: any) {
     console.log('📤 Creating candidate:', data)
 
-    const response = await fetch('/api/candidates', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify({
-        name: data.name?.trim(),
-        nim: data.nim?.trim(),
-        prodi: data.prodi?.trim(),
-        visi: data.visi?.trim(),
-        misi: data.misi?.trim(),
-        photo: data.photo?.trim() || null
+    let response: Response
+
+    if (data.photoFile instanceof File) {
+      // Kirim sebagai FormData jika ada file gambar
+      const formData = new FormData()
+      formData.append('name', data.name?.trim() || '')
+      formData.append('nim', data.nim?.trim() || '')
+      formData.append('prodi', data.prodi?.trim() || '')
+      formData.append('position', data.position || '')
+      formData.append('visi', data.visi?.trim() || '')
+      formData.append('misi', data.misi?.trim() || '')
+      if (data.photo) {
+        formData.append('photo', data.photo?.trim())
+      }
+      formData.append('photoFile', data.photoFile)
+
+      response = await fetch('/api/candidates', {
+        method: 'POST',
+        credentials: 'include',
+        body: formData,
       })
-    })
+    } else {
+      // Fallback: kirim sebagai JSON (tanpa file)
+      response = await fetch('/api/candidates', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          name: data.name?.trim(),
+          nim: data.nim?.trim(),
+          prodi: data.prodi?.trim(),
+          position: data.position,
+          visi: data.visi?.trim(),
+          misi: data.misi?.trim(),
+          photo: data.photo?.trim() || null,
+        }),
+      })
+    }
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({ error: 'Request failed' }))
@@ -107,24 +132,43 @@ class ApiClient {
 
   static async updateCandidate(id: string, data: any) {
     console.log('📤 Updating candidate:', id, data)
+    let response: Response
 
-    const cleanData: any = {}
-    if (data.name !== undefined) cleanData.name = data.name?.trim()
-    if (data.nim !== undefined) cleanData.nim = data.nim?.trim()
-    if (data.prodi !== undefined) cleanData.prodi = data.prodi?.trim()
-    if (data.visi !== undefined) cleanData.visi = data.visi?.trim()
-    if (data.misi !== undefined) cleanData.misi = data.misi?.trim()
-    if (data.photo !== undefined) cleanData.photo = data.photo?.trim() || null
-    if (data.isActive !== undefined) cleanData.isActive = data.isActive
+    if (data.photoFile instanceof File) {
+      const formData = new FormData()
+      if (data.name !== undefined) formData.append('name', data.name?.trim() || '')
+      if (data.nim !== undefined) formData.append('nim', data.nim?.trim() || '')
+      if (data.prodi !== undefined) formData.append('prodi', data.prodi?.trim() || '')
+      if (data.visi !== undefined) formData.append('visi', data.visi?.trim() || '')
+      if (data.misi !== undefined) formData.append('misi', data.misi?.trim() || '')
+      if (data.photo !== undefined) formData.append('photo', data.photo?.trim() || '')
+      if (data.isActive !== undefined) formData.append('isActive', String(data.isActive))
+      formData.append('photoFile', data.photoFile)
 
-    const response = await fetch(`/api/candidates/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(cleanData)
-    })
+      response = await fetch(`/api/candidates/${id}`, {
+        method: 'PUT',
+        credentials: 'include',
+        body: formData,
+      })
+    } else {
+      const cleanData: any = {}
+      if (data.name !== undefined) cleanData.name = data.name?.trim()
+      if (data.nim !== undefined) cleanData.nim = data.nim?.trim()
+      if (data.prodi !== undefined) cleanData.prodi = data.prodi?.trim()
+      if (data.visi !== undefined) cleanData.visi = data.visi?.trim()
+      if (data.misi !== undefined) cleanData.misi = data.misi?.trim()
+      if (data.photo !== undefined) cleanData.photo = data.photo?.trim() || null
+      if (data.isActive !== undefined) cleanData.isActive = data.isActive
+
+      response = await fetch(`/api/candidates/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(cleanData),
+      })
+    }
 
     const result = await response.json()
     console.log('📥 Server response:', result)

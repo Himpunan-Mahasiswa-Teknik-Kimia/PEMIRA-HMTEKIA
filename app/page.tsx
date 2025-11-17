@@ -4,6 +4,13 @@ import { Badge } from "@/components/ui/badge"
 import { Vote, Users, Shield, Clock } from "@/lib/icons"
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "PEMIRA HIMATEKIA 2025",
+  description:
+    "Sistem Pemilihan Ketua BPH & Senator Himpunan Mahasiswa Teknik Kimia 2025. Suaramu menentukan masa depan HIMATEKIA.",
+}
 
 export default function LandingPage() {
   return (
@@ -25,11 +32,6 @@ export default function LandingPage() {
                 <p className="text-sm text-muted-foreground">Pemilihan Ketua BPH & Senator</p>
               </div>
             </div>
-            <Link href="/login">
-              <Button variant="outline" size="sm">
-                Masuk
-              </Button>
-            </Link>
           </div>
         </div>
       </header>

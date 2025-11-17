@@ -43,6 +43,7 @@ export default function CandidateManagement() {
   const [success, setSuccess] = useState("")
   const [showDialog, setShowDialog] = useState(false)
   const [editingCandidate, setEditingCandidate] = useState<Candidate | null>(null)
+  const [photoFile, setPhotoFile] = useState<File | null>(null)
   const [formData, setFormData] = useState({
     name: "",
     nim: "",
@@ -99,8 +100,8 @@ export default function CandidateManagement() {
       errors.nim = 'NIM harus berupa angka'
     }
 
-    // Validate photo path if provided (accept both URLs and local paths)
-    if (formData.photo.trim()) {
+    // Validate foto hanya jika tidak ada file upload dan field diisi manual
+    if (!photoFile && formData.photo.trim()) {
       const photo = formData.photo.trim()
       // Check if it's a local path (starts with /) or a valid URL
       if (!photo.startsWith('/')) {
@@ -132,13 +133,15 @@ export default function CandidateManagement() {
     try {
       console.log('📤 Form submission:', { formData, editingCandidate })
 
+      const payload = { ...formData, photoFile }
+
       if (editingCandidate) {
         // Update existing candidate
-        await ApiClient.updateCandidate(editingCandidate.id, formData)
+        await ApiClient.updateCandidate(editingCandidate.id, payload)
         setSuccess("Kandidat berhasil diupdate")
       } else {
         // Create new candidate
-        await ApiClient.createCandidate(formData)
+        await ApiClient.createCandidate(payload)
         setSuccess("Kandidat berhasil ditambahkan")
       }
 
@@ -164,6 +167,7 @@ export default function CandidateManagement() {
       misi: candidate.misi,
       photo: candidate.photo || "",
     })
+    setPhotoFile(null)
     setFormErrors({}) // Clear any previous errors
     setShowDialog(true)
   }
@@ -197,6 +201,7 @@ export default function CandidateManagement() {
     setFormData({ name: "", nim: "", prodi: "", position: "KETUA_BPH", visi: "", misi: "", photo: "" })
     setFormErrors({})
     setEditingCandidate(null)
+    setPhotoFile(null)
     setShowDialog(false)
   }
 
@@ -321,9 +326,27 @@ export default function CandidateManagement() {
                       className={formErrors.photo ? 'border-red-500' : ''}
                     />
                     <p className="text-xs text-muted-foreground">
-                      Gunakan path dari folder public: /No.1 Ketua BPH.jpg, /No.2 Ketua BPH.jpg, /No.1 Senator.jpg, /No.2  Senator.jpg
+                      Kamu bisa:
+                      - Mengisi path dari folder public (mis: /No.1 Ketua BPH.jpg), atau
+                      - Mengunggah file gambar di bawah ini, nanti sistem akan menyimpan path-nya otomatis
                     </p>
                     {formErrors.photo && <p className="text-sm text-red-500">{formErrors.photo}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="photoFile">Upload Foto Kandidat</Label>
+                    <Input
+                      id="photoFile"
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0] || null
+                        setPhotoFile(file)
+                      }}
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Jika kamu memilih file di sini, foto akan diunggah ke server dan digunakan untuk tampilan kandidat.
+                    </p>
                   </div>
                   
                   <div className="space-y-2">

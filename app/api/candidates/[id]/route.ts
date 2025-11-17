@@ -2,6 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { requireAdmin } from '@/lib/session'
+import { writeFile, mkdir } from 'fs/promises'
+import path from 'path'
 
 // UPDATE candidate with enhanced debugging
 export async function PUT(
@@ -12,10 +14,48 @@ export async function PUT(
     // Check authentication and admin role
     const user = await requireAdmin(request)
 
-    const body = await request.json()
-    console.log('🔍 PUT Request body:', body)
+    const contentType = request.headers.get('content-type') || ''
 
-    const { name, nim, prodi, visi, misi, photo, isActive } = body
+    let name: string
+    let nim: string
+    let prodi: string
+    let visi: string
+    let misi: string
+    let photo: string | null = null
+    let isActive: boolean | undefined
+    let uploadedPhotoPath: string | null = null
+
+    if (contentType.includes('multipart/form-data')) {
+      const formData = await request.formData()
+      name = String(formData.get('name') || '')
+      nim = String(formData.get('nim') || '')
+      prodi = String(formData.get('prodi') || '')
+      visi = String(formData.get('visi') || '')
+      misi = String(formData.get('misi') || '')
+      const photoField = formData.get('photo')
+      photo = photoField ? String(photoField) : null
+      const isActiveField = formData.get('isActive')
+      if (isActiveField !== null) {
+        isActive = String(isActiveField) === 'true'
+      }
+
+      const file = formData.get('photoFile') as File | null
+      if (file && typeof file === 'object') {
+        const buffer = Buffer.from(await file.arrayBuffer())
+        const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'candidates')
+        await mkdir(uploadsDir, { recursive: true })
+        const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')
+        const fileName = `${Date.now()}_${safeName}`
+        const filePath = path.join(uploadsDir, fileName)
+        await writeFile(filePath, buffer)
+        uploadedPhotoPath = `/uploads/candidates/${fileName}`
+      }
+    } else {
+      const body = await request.json()
+      console.log('🔍 PUT Request body:', body)
+
+      ;({ name, nim, prodi, visi, misi, photo, isActive } = body)
+    }
 
     // Enhanced validation with specific field checking
     const missingFields = []
@@ -52,7 +92,7 @@ export async function PUT(
 
     console.log('✅ Updating candidate:', params.id)
 
-    // Update candidate
+    // Update candidate (schema hanya punya createdAt, tidak ada updatedAt)
     const updatedCandidate = await prisma.candidate.update({
       where: { id: params.id },
       data: {
@@ -61,15 +101,14 @@ export async function PUT(
         prodi: prodi.trim(),
         visi: visi.trim(),
         misi: misi.trim(),
-        photo: photo || null,
+        photo: uploadedPhotoPath || photo || null,
         isActive: isActive !== undefined ? isActive : existingCandidate.isActive,
-        updatedAt: new Date()
       },
       include: {
         _count: {
-          select: { votes: true }
-        }
-      }
+          select: { votes: true },
+        },
+      },
     })
 
     const candidateWithVoteCount = {
@@ -83,7 +122,6 @@ export async function PUT(
       isActive: updatedCandidate.isActive,
       voteCount: updatedCandidate._count.votes,
       createdAt: updatedCandidate.createdAt,
-      updatedAt: updatedCandidate.updatedAt
     }
 
     console.log('✅ Candidate updated successfully')
