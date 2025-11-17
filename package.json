@@ -11,7 +11,7 @@
     "db:generate": "npx prisma generate",
     "db:studio": "npx prisma studio",
     "seed:core": "node prisma/seed.js",
-    "import:students": "node scripts/import-students.js \"public/DATA ALL ANGGOTA HIMATEKIA FIKS.csv\"",
+    "import:students": "node scripts/import-students.js \"public/DATA ALL ANGGOTA HIMATEKIA FIKS.csv\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
