@@ -55,6 +55,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="wzOeWwFfOv4PKkU9LWjn4qDB9xLOp9Uji6MKYKygvSA"
+        />
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         {children}
         <Analytics />
