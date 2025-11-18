@@ -69,9 +69,25 @@ async function main() {
         continue
       }
 
-      const name = normalizeText(parts[0])
-      const nim = normalizeNim(parts[1])
-      const prodi = normalizeText(parts.slice(2).join(',')) // in case prodi contained commas in future
+      // Support two formats:
+      // 1) Lama:  Nama Mahasiswa,NIM,Program Studi
+      // 2) Baru:  ,No,Nama,NIM,Prodi,Angkatan,Gender,Status
+      let name
+      let nim
+      let prodi
+
+      if (parts.length >= 5 && (parts[0] === '' || /^\d+$/.test(parts[1]))) {
+        // Format dengan kolom nomor di depan (DATA ALL ANGGOTA HIMATEKIA FIKS.csv)
+        // Contoh: ,320,Stevani...,123280005,Teknik Kimia,2023,Perempuan,Anggota Tetap
+        name = normalizeText(parts[2])
+        nim = normalizeNim(parts[3])
+        prodi = normalizeText(parts[4])
+      } else {
+        // Format lama sederhana: Nama,NIM,Prodi (atau mirip)
+        name = normalizeText(parts[0])
+        nim = normalizeNim(parts[1])
+        prodi = normalizeText(parts.slice(2).join(',')) // in case prodi contained commas in future
+      }
 
       if (!name || !nim || !prodi) {
         counts.skipped++
