@@ -21,6 +21,7 @@ export async function PUT(
     let prodi: string
     let visi: string
     let misi: string
+    let position: 'KETUA_BPH' | 'SENATOR' | undefined
     let photo: string | null = null
     let isActive: boolean | undefined
     let uploadedPhotoPath: string | null = null
@@ -32,6 +33,8 @@ export async function PUT(
       prodi = String(formData.get('prodi') || '')
       visi = String(formData.get('visi') || '')
       misi = String(formData.get('misi') || '')
+      const positionField = formData.get('position')
+      position = positionField ? (String(positionField) as 'KETUA_BPH' | 'SENATOR') : undefined
       const photoField = formData.get('photo')
       photo = photoField ? String(photoField) : null
       const isActiveField = formData.get('isActive')
@@ -54,7 +57,7 @@ export async function PUT(
       const body = await request.json()
       console.log('🔍 PUT Request body:', body)
 
-      ;({ name, nim, prodi, visi, misi, photo, isActive } = body)
+      ;({ name, nim, prodi, visi, misi, photo, isActive, position } = body)
     }
 
     // Enhanced validation with specific field checking
@@ -65,6 +68,8 @@ export async function PUT(
     if (!prodi || prodi.trim() === '') missingFields.push('prodi')
     if (!visi || visi.trim() === '') missingFields.push('visi')
     if (!misi || misi.trim() === '') missingFields.push('misi')
+    if (!position || (position !== 'KETUA_BPH' && position !== 'SENATOR')) missingFields.push('position')
+    if (!position || (position !== 'KETUA_BPH' && position !== 'SENATOR')) missingFields.push('position')
 
     if (missingFields.length > 0) {
       console.log('❌ Missing fields:', missingFields)
@@ -99,6 +104,7 @@ export async function PUT(
         name: name.trim(),
         nim: nim.trim(),
         prodi: prodi.trim(),
+        position: position || existingCandidate.position,
         visi: visi.trim(),
         misi: misi.trim(),
         photo: uploadedPhotoPath || photo || null,
@@ -156,6 +162,57 @@ export async function PUT(
   }
 }
 
+// DELETE candidate
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    await requireAdmin(request)
+
+    const candidate = await prisma.candidate.findUnique({
+      where: { id: params.id },
+      select: { id: true }
+    })
+
+    if (!candidate) {
+      return NextResponse.json(
+        { error: 'Candidate not found' },
+        { status: 404 }
+      )
+    }
+
+    await prisma.$transaction([
+      prisma.vote.deleteMany({ where: { candidateId: candidate.id } }),
+      prisma.candidate.delete({ where: { id: candidate.id } })
+    ])
+
+    return NextResponse.json({ message: 'Candidate deleted successfully' })
+  } catch (error) {
+    console.error('💥 Delete candidate error:', error)
+
+    if (error instanceof Error) {
+      if (error.message === 'Authentication required') {
+        return NextResponse.json(
+          { error: 'Not authenticated' },
+          { status: 401 }
+        )
+      }
+      if (error.message === 'Admin access required') {
+        return NextResponse.json(
+          { error: 'Unauthorized' },
+          { status: 403 }
+        )
+      }
+    }
+
+    return NextResponse.json(
+      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    )
+  }
+}
+
 // CREATE candidate with enhanced debugging  
 export async function POST(request: NextRequest) {
   try {
@@ -164,7 +221,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     console.log('🔍 POST Request body:', body)
 
-    const { name, nim, prodi, visi, misi, photo } = body
+    const { name, nim, prodi, visi, misi, photo, position } = body
 
     // Enhanced validation with specific field checking
     const missingFields = []
@@ -194,6 +251,7 @@ export async function POST(request: NextRequest) {
         name: name.trim(),
         nim: nim.trim(), 
         prodi: prodi.trim(),
+        position,
         visi: visi.trim(),
         misi: misi.trim(),
         photo: photo || null

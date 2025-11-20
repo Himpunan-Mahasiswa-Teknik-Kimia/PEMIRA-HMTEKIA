@@ -307,11 +307,18 @@ export default function GenerateCodePage() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-12 w-12 rounded-lg bg-primary flex items-center justify-center">
-              <QrCode className="h-7 w-7 text-primary-foreground" />
+            <div className="h-14 w-14 rounded-lg flex items-center justify-center">
+              <Image
+                src="/logo.jpeg"
+                alt="Logo PEMIRA HIMATEKIA"
+                width={48}
+                height={48}
+                className="object-contain rounded-lg"
+                priority
+              />
             </div>
             <div className="text-left">
-              <h1 className="font-bold text-xl text-foreground">HIMATEKIA Election</h1>
+              <h1 className="font-bold text-xl text-foreground">PEMIRA HIMATEKIA-ITERA 2025</h1>
               <p className="text-sm text-muted-foreground">Generate Kode Voting</p>
             </div>
           </div>

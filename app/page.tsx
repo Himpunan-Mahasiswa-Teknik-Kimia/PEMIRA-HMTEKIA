@@ -28,7 +28,7 @@ export default function LandingPage() {
                 className="rounded-lg"
               />
               <div>
-                <h1 className="font-bold text-lg text-foreground">HIMATEKIA 2025</h1>
+                <h1 className="font-bold text-lg text-foreground">PEMIRA HIMATEKIA-ITERA 2025</h1>
                 <p className="text-sm text-muted-foreground">Pemilihan Ketua BPH & Senator</p>
               </div>
             </div>
@@ -43,10 +43,10 @@ export default function LandingPage() {
             Pemilihan Ketua BPH & Senator 2025
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-balance mb-6 text-foreground">
-            Suaramu, <span className="text-gradient-itera">Masa Depan</span> HIMATEKIA
+            Suaramu, <span className="text-gradient-itera">Masa Depan</span> HIMATEKIA-ITERA 2025
           </h1>
           <p className="text-xl text-muted-foreground text-balance max-w-2xl mx-auto mb-8">
-            Berpartisipasilah dalam pemilihan Ketua BPH dan Senator HIMATEKIA 2025. Pilih pemimpin yang akan membawa perubahan
+            Berpartisipasilah dalam pemilihan Ketua BPH dan Senator HIMATEKIA-ITERA 2025. Pilih pemimpin yang akan membawa perubahan
             positif untuk himpunan kita.
           </p>
           <div className="flex justify-center">
@@ -143,7 +143,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-muted-foreground">
             <p>&copy; 2025 Himpunan Mahasiswa Teknik Kimia. All rights reserved.</p>
-            <p className="text-sm mt-2">Sistem Pemilihan Ketua BPH & Senator HIMATEKIA</p>
+            <p className="text-sm mt-2">Sistem Pemilihan Ketua BPH & Senator HIMATEKIA-ITERA 2025</p>
           </div>
         </div>
       </footer>

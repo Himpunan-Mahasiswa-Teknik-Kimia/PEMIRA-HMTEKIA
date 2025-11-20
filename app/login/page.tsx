@@ -136,7 +136,7 @@ function LoginForm() {
               className="rounded-lg"
             />
             <div className="text-left">
-              <h1 className="font-bold text-xl text-foreground">HIMATEKIA 2025</h1>
+              <h1 className="font-bold text-xl text-foreground">PEMIRA HIMATEKIA-ITERA 2025</h1>
               <p className="text-sm text-muted-foreground">Pemilihan Ketua BPH & Senator</p>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function LoginPage() {
                 className="rounded-lg"
               />
               <div className="text-left">
-                <h1 className="font-bold text-xl text-foreground">HIMATEKIA 2025</h1>
+                <h1 className="font-bold text-xl text-foreground">PEMIRA HIMATEKIA-ITERA 2025</h1>
                 <p className="text-sm text-muted-foreground">Pemilihan Ketua BPH & Senator</p>
               </div>
             </div>
