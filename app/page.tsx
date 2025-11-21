@@ -7,7 +7,7 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "PEMIRA HIMATEKIA 2025",
+  title: "PEMIRA HIMATEKIA-ITERA 2025",
   description:
     "Sistem Pemilihan Ketua BPH & Senator Himpunan Mahasiswa Teknik Kimia 2025. Suaramu menentukan masa depan HIMATEKIA.",
 }

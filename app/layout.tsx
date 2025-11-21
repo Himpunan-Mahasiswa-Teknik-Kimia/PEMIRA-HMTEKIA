@@ -7,8 +7,8 @@ import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
   title: {
-    default: 'HIMATEKIA 2025',
-    template: '%s | HIMATEKIA 2025',
+    default: 'PEMIRA HIMATEKIA-ITERA 2025',
+    template: '%s | PEMIRA HIMATEKIA-ITERA 2025',
   },
   description:
     'Sistem Pemilihan Ketua BPH & Senator Himpunan Mahasiswa Teknik Kimia 2025. Voting online yang aman, terpercaya, dan transparan untuk mahasiswa Teknik Kimia.',
@@ -22,21 +22,22 @@ export const metadata: Metadata = {
     'Pemira 2025',
     'Voting online',
     'Institut Teknologi Sumatera',
+    'PEMIRA HIMATEKIA-ITERA 2025'
   ],
   authors: [{ name: 'Himpunan Mahasiswa Teknik Kimia' }],
-  applicationName: 'PEMIRA HIMATEKIA 2025',
+  applicationName: 'PEMIRA HIMATEKIA-ITERA 2025',
   openGraph: {
     title: 'HIMATEKIA 2025 - Pemilihan Ketua BPH & Senator',
     description:
-      'Ikuti PEMIRA HIMATEKIA 2025 untuk memilih Ketua BPH dan Senator. Sistem pemilihan online yang aman, mudah digunakan, dan transparan.',
+      'Ikuti PEMIRA HIMATEKIA-ITERA 2025 untuk memilih Ketua BPH dan Senator. Sistem pemilihan online yang aman, mudah digunakan, dan transparan.',
     url: '/',
-    siteName: 'PEMIRA HIMATEKIA 2025',
+    siteName: 'PEMIRA HIMATEKIA-ITERA 2025',
     locale: 'id_ID',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PEMIRA HIMATEKIA 2025',
+    title: 'PEMIRA HIMATEKIA-ITERA 2025',
     description:
       'Sistem Pemilihan Ketua BPH & Senator Himpunan Mahasiswa Teknik Kimia 2025 secara online, aman, dan transparan.',
   },

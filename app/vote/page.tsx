@@ -338,7 +338,7 @@ export default function VotePage() {
               className="rounded-lg"
             />
             <div className="text-left">
-              <h1 className="font-bold text-xl">PEMIRA HIMATEKIA 2025</h1>
+              <h1 className="font-bold text-xl">PEMIRA HIMATEKIA-ITERA 2025</h1>
               <p className="text-sm text-muted-foreground">Pilih Kandidat Anda</p>
             </div>
           </div>

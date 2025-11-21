@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Registrasi Pemilih',
   description:
-    'Daftar sebagai pemilih PEMIRA HIMATEKIA 2025. Isi email, NIM, nama lengkap, dan program studi untuk mendapatkan akses voting.',
+    'Daftar sebagai pemilih PEMIRA HIMATEKIA-ITERA 2025. Isi email, NIM, nama lengkap, dan program studi untuk mendapatkan akses voting.',
 }
 
 export default function Head() {
